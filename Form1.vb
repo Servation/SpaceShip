@@ -45,6 +45,7 @@ Public Class Form1
             Ast(i).speedY = gen.Next(20, 80) * 0.1
             Ast(i).speedX = gen.Next(-8, 8) * 0.1
             Ast(i).type = gen.Next(0, 4)
+            Ast(i).cX = Ast(i).x + 30
         Next
 
     End Sub
@@ -56,8 +57,22 @@ Public Class Form1
         G.SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
         For i As Integer = 0 To Ast.Count - 1
             Ast(i).Show(G)
+            If pointCircle(Ship.px0, Ship.py0, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Then
+                Ast(i).y = -60
+                Ast(i).cX = Ast(i).x + 30
+                Ast(i).cY = Ast(i).y + 30
+            ElseIf pointCircle(Ship.px1, Ship.py1, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Then
+                Ast(i).y = -60
+                Ast(i).cX = Ast(i).x + 30
+                Ast(i).cY = Ast(i).y + 30
+            ElseIf pointCircle(Ship.px2, Ship.py2, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Then
+                Ast(i).y = -60
+                Ast(i).cX = Ast(i).x + 30
+                Ast(i).cY = Ast(i).y + 30
+            End If
             Ast(i).Update(gen.Next(0, MainRect.Width))
             Ast(i).visible = True
+
         Next
         Ship.Show(G)
         Ship.Update()
@@ -67,8 +82,11 @@ Public Class Form1
         StartShip()
     End Sub
 
-    Public Shared Function DistanceBetween(p1 As Point, p2 As Point) As Single
-        Return Math.Sqrt((Math.Abs(p2.X - p1.X) ^ 2) + (Math.Abs(p2.Y - p1.Y) ^ 2))
+    Private Function pointCircle(px As Decimal, py As Decimal, cx As Decimal, cy As Decimal, r As Decimal) As Boolean
+        Dim distX As Decimal = px - cx
+        Dim distY As Decimal = py - cy
+        Dim distance = Math.Sqrt((distX * distX) + (distY * distY))
+        Return distance <= r
     End Function
 
 End Class

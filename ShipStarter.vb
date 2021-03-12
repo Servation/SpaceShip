@@ -6,6 +6,7 @@
     Public maxSpeed = 5
     Private MainRect As Rectangle
     Public visible = True
+    Public px0, py0, px1, py1, px2, py2 As Decimal
 
     Sub New(MainRect As Rectangle)
         Me.MainRect = MainRect
@@ -18,6 +19,13 @@
         y = MainRect.Height * 9 / 10 - 30
         speedX = 0
         speedY = -5
+        px0 = 30 + x
+        py0 = 0 + y
+        px1 = 0 + x
+        py1 = 65 + y
+        px2 = 60 + x
+        py2 = 65 + y
+
     End Sub
 
     Public Sub Show(G As Graphics)
@@ -35,7 +43,12 @@
     Public Sub Update()
         x += speedX
         y += speedY
-        'reset variables when the circle reaches the edge
+        px0 += speedX
+        py0 += speedY
+        px1 += speedX
+        py1 += speedY
+        px2 += speedX
+        py2 += speedY
 
         If x < 0 Then
             x = 0

@@ -1,6 +1,9 @@
 ﻿Public Class Asteroid
     Public x As Decimal
     Public y As Decimal
+    Public cX As Decimal
+    Public cY As Decimal
+    Public Radius As Decimal
     Public speedX As Decimal
     Public speedY As Decimal
     Public type As Integer
@@ -16,6 +19,8 @@
         'reset variables
         y = -60
         speedX = 0
+        Radius = 30
+        cY = -30
     End Sub
 
     Public Sub Show(G As Graphics)
@@ -40,10 +45,14 @@
     Public Sub Update(i As Integer)
         x += speedX
         y += speedY
-
+        cX += speedX
+        cY += speedY
         If y > MainRect.Height + 90 Then
-            y = 0
+            y = -60
             x = i
+            cY = -30
+            cX = i + 30
         End If
+
     End Sub
 End Class
