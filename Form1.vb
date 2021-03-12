@@ -58,7 +58,6 @@ Public Class Form1
             Stars(i).y = gen.Next(0, MainRect.Height)
             Stars(i).size = gen.Next(1, 5)
             Stars(i).speedY = gen.Next(1, 3) * 0.1
-
         Next
     End Sub
 
@@ -73,24 +72,30 @@ Public Class Form1
         Next
         For i As Integer = 0 To Ast.Count - 1
             Ast(i).Show(G)
-            If pointCircle(Ship.px0, Ship.py0, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Then
+            If pointCircle(Ship.px0, Ship.py0, Ast(i).cX, Ast(i).cY, Ast(i).Radius) And Ship.health > 0 Then
                 Ast(i).y = -60
                 Ast(i).cX = Ast(i).x + 30
                 Ast(i).cY = Ast(i).y + 30
-            ElseIf pointCircle(Ship.px1, Ship.py1, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Then
+                Ship.health -= 34
+            ElseIf (pointCircle(Ship.px1, Ship.py1, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Or pointCircle(Ship.px2, Ship.py2, Ast(i).cX, Ast(i).cY, Ast(i).Radius)) And Ship.health > 0 Then
                 Ast(i).y = -60
                 Ast(i).cX = Ast(i).x + 30
                 Ast(i).cY = Ast(i).y + 30
-            ElseIf pointCircle(Ship.px2, Ship.py2, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Then
-                Ast(i).y = -60
-                Ast(i).cX = Ast(i).x + 30
-                Ast(i).cY = Ast(i).y + 30
+                Ship.health -= 24
             End If
             Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-8, 8) * 0.1)
             Ast(i).visible = True
         Next
-        Ship.Show(G)
-        Ship.Update()
+
+        If Ship.alive Then
+            Ship.Show(G)
+            Ship.Update()
+        Else
+            lblHealth.Visible = False
+            lblGameOver.Visible = True
+        End If
+        lblHealth.Text = Ship.health
+
     End Sub
 
     Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles Me.Resize
