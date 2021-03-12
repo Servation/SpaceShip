@@ -2,7 +2,7 @@
 Public Class Form1
     Private MainRect As Rectangle
     Private Ship As ShipStarter
-    Private Ast(10) As Asteroid
+    Private Ast(15) As Asteroid
     Private keysPressed As New HashSet(Of Keys)
     Private gen As New Random
 
