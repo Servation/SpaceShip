@@ -36,7 +36,7 @@
         point1 = {New Point(x + 30, y + 0), New Point(x + 14, y + 30), New Point(x + 2, y + 60), New Point(x + 15, y + 50), New Point(x + 45, y + 50), New Point(x + 58, y + 60), New Point(x + 46, y + 30)}
         If visible Then
             G.FillPolygon(New SolidBrush(Color.FromArgb(200, 100, 100)), points)
-            G.FillPolygon(New SolidBrush(Color.FromArgb(100, 100, 100)), point1)
+            G.FillPolygon(New SolidBrush(Color.FromArgb(80, 10, 10)), point1)
         End If
     End Sub
 

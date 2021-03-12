@@ -38,16 +38,17 @@
             End Select
 
             G.DrawPolygon(New Pen(Color.White), points)
-            G.FillPolygon(New SolidBrush(Color.FromArgb(39, 16, 5)), points)
+            G.FillPolygon(New SolidBrush(Color.FromArgb(100, 90, 90)), points)
         End If
     End Sub
 
-    Public Sub Update(i As Integer)
+    Public Sub Update(i As Decimal, n As Decimal)
         x += speedX
         y += speedY
         cX += speedX
         cY += speedY
         If y > MainRect.Height + 90 Then
+            speedX = n
             y = -60
             x = i
             cY = -30

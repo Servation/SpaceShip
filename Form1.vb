@@ -3,6 +3,7 @@ Public Class Form1
     Private MainRect As Rectangle
     Private Ship As ShipStarter
     Private Ast(10) As Asteroid
+    Private Stars(200) As Star
     Private keysPressed As New HashSet(Of Keys)
     Private gen As New Random
 
@@ -29,8 +30,10 @@ Public Class Form1
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DoubleBuffered = True
+        StartStars()
         StartShip()
-        startAst()
+        StartAsteroid()
+
     End Sub
 
     Private Sub StartShip()
@@ -38,7 +41,7 @@ Public Class Form1
         Ship = New ShipStarter(MainRect)
     End Sub
 
-    Private Sub startAst()
+    Private Sub StartAsteroid()
         For i As Integer = 0 To Ast.Count - 1
             Ast(i) = New Asteroid(MainRect)
             Ast(i).x = gen.Next(0, MainRect.Width)
@@ -47,7 +50,16 @@ Public Class Form1
             Ast(i).type = gen.Next(0, 4)
             Ast(i).cX = Ast(i).x + 30
         Next
+    End Sub
+    Private Sub StartStars()
+        For i As Integer = 0 To Stars.Count - 1
+            Stars(i) = New Star(MainRect)
+            Stars(i).x = gen.Next(0, MainRect.Width)
+            Stars(i).y = gen.Next(0, MainRect.Height)
+            Stars(i).size = gen.Next(1, 5)
+            Stars(i).speedY = gen.Next(1, 3) * 0.1
 
+        Next
     End Sub
 
 
@@ -55,6 +67,10 @@ Public Class Form1
         Dim G As Graphics = e.Graphics
 
         G.SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
+        For i As Integer = 0 To Stars.Count - 1
+            Stars(i).Show(G)
+            Stars(i).Update()
+        Next
         For i As Integer = 0 To Ast.Count - 1
             Ast(i).Show(G)
             If pointCircle(Ship.px0, Ship.py0, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Then
@@ -70,9 +86,8 @@ Public Class Form1
                 Ast(i).cX = Ast(i).x + 30
                 Ast(i).cY = Ast(i).y + 30
             End If
-            Ast(i).Update(gen.Next(0, MainRect.Width))
+            Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-8, 8) * 0.1)
             Ast(i).visible = True
-
         Next
         Ship.Show(G)
         Ship.Update()
@@ -80,6 +95,8 @@ Public Class Form1
 
     Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         StartShip()
+        StartAsteroid()
+        StartStars()
     End Sub
 
     Private Function pointCircle(px As Decimal, py As Decimal, cx As Decimal, cy As Decimal, r As Decimal) As Boolean

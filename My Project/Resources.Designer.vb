@@ -61,12 +61,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         '''</summary>
-        Friend ReadOnly Property _2c37538ad1d9a09852c9ec8638c5fa8b() As System.Drawing.Bitmap
+        Friend ReadOnly Property Noise() As System.IO.UnmanagedMemoryStream
             Get
-                Dim obj As Object = ResourceManager.GetObject("2c37538ad1d9a09852c9ec8638c5fa8b", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
+                Return ResourceManager.GetStream("Noise", resourceCulture)
             End Get
         End Property
     End Module
