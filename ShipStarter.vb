@@ -3,7 +3,7 @@
     Public y As Decimal
     Public speedX As Decimal
     Public speedY As Decimal
-    Public maxSpeed = 10
+    Public maxSpeed = 15
     Private MainRect As Rectangle
     Public visible = True
 
