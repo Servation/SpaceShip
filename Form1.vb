@@ -7,6 +7,8 @@ Public Class Form1
     Private keysPressed As New HashSet(Of Keys)
     Private gen As New Random
     Dim score As Double = 0
+    Private dead As Boolean = True
+
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If keysPressed.Contains(Keys.A) And Ship.speedX > -Ship.maxSpeed Then
@@ -25,7 +27,7 @@ Public Class Form1
     End Sub
     Private Sub form1_keydown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         keysPressed.Add(e.KeyCode)
-        If e.KeyCode = Keys.Space Then
+        If e.KeyCode = Keys.Space And dead Then
             DoubleBuffered = True
             StartStars()
             StartShip()
@@ -37,7 +39,8 @@ Public Class Form1
             lblHealth.Text = Ship.health
             score = 0
             tmrScore.Start()
-
+            dead = False
+            Ship.alive = True
         End If
     End Sub
     Private Sub Form1_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
@@ -81,33 +84,34 @@ Public Class Form1
             Stars(i).Show(G)
             Stars(i).Update()
         Next
-        For i As Integer = 0 To Ast.Count - 1
-            Ast(i).Show(G)
-            If pointCircle(Ship.px0, Ship.py0, Ast(i).cX, Ast(i).cY, Ast(i).Radius) And Ship.health > 0 Then
-                Ast(i).y = -60
-                Ast(i).cX = Ast(i).x + 30
-                Ast(i).cY = Ast(i).y + 30
-                Ship.health -= 34
-            ElseIf (pointCircle(Ship.px1, Ship.py1, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Or pointCircle(Ship.px2, Ship.py2, Ast(i).cX, Ast(i).cY, Ast(i).Radius)) And Ship.health > 0 Then
-                Ast(i).y = -60
-                Ast(i).cX = Ast(i).x + 30
-                Ast(i).cY = Ast(i).y + 30
-                Ship.health -= 24
-            End If
-            Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-8, 8) * 0.1)
-            Ast(i).visible = True
-        Next
-
         If Ship.alive Then
+            For i As Integer = 0 To Ast.Count - 1
+                Ast(i).Show(G)
+                If pointCircle(Ship.px0, Ship.py0, Ast(i).cX, Ast(i).cY, Ast(i).Radius) And Ship.health > 0 Then
+                    Ast(i).y = -60
+                    Ast(i).cX = Ast(i).x + 30
+                    Ast(i).cY = Ast(i).y + 30
+                    Ship.health -= 34
+                ElseIf (pointCircle(Ship.px1, Ship.py1, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Or pointCircle(Ship.px2, Ship.py2, Ast(i).cX, Ast(i).cY, Ast(i).Radius)) And Ship.health > 0 Then
+                    Ast(i).y = -60
+                    Ast(i).cX = Ast(i).x + 30
+                    Ast(i).cY = Ast(i).y + 30
+                    Ship.health -= 24
+                End If
+                Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-8, 8) * 0.1)
+                Ast(i).visible = True
+            Next
+
             Ship.Show(G)
             Ship.Update()
+            lblHealth.Text = Ship.health
         Else
-            lblHealth.Visible = False
-            lblGameOver.Visible = True
-            lblRetry.Visible = True
-            tmrScore.Stop()
+                lblHealth.Visible = False
+                lblGameOver.Visible = True
+                lblRetry.Visible = True
+                tmrScore.Stop()
+            dead = True
         End If
-        lblHealth.Text = Ship.health
 
     End Sub
 

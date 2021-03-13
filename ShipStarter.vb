@@ -14,7 +14,7 @@
     Sub New(MainRect As Rectangle)
         Me.MainRect = MainRect
         ResetVars()
-        alive = True
+        alive = False
     End Sub
 
     Private Sub ResetVars()
