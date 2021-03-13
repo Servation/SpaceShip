@@ -8,6 +8,7 @@ Public Class Form1
     Private gen As New Random
     Dim score As Double = 0
     Private dead As Boolean = True
+    Private start As Boolean = True
 
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -41,6 +42,9 @@ Public Class Form1
             tmrScore.Start()
             dead = False
             Ship.alive = True
+            If start Then
+                start = False
+            End If
         End If
     End Sub
     Private Sub Form1_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
@@ -106,12 +110,14 @@ Public Class Form1
             Ship.Update()
             lblHealth.Text = Ship.health
         Else
-                lblHealth.Visible = False
+            lblHealth.Visible = False
+            If Not start Then
                 lblGameOver.Visible = True
                 lblRetry.Visible = True
-                tmrScore.Stop()
-            dead = True
-        End If
+            End If
+            tmrScore.Stop()
+                dead = True
+            End If
 
     End Sub
 
