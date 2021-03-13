@@ -24,15 +24,22 @@ Public Class Form1
     End Sub
     Private Sub form1_keydown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         keysPressed.Add(e.KeyCode)
+        If e.KeyCode = Keys.Space Then
+            DoubleBuffered = True
+            StartStars()
+            StartShip()
+            StartAsteroid()
+            lblHealth.Visible = True
+            lblGameOver.Visible = False
+            lblPressSpace.Visible = False
+            lblRetry.Visible = False
+            lblHealth.Text = Ship.health
+        End If
     End Sub
     Private Sub Form1_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
         keysPressed.Remove(e.KeyCode)
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DoubleBuffered = True
-        StartStars()
-        StartShip()
-        StartAsteroid()
 
     End Sub
 
@@ -93,6 +100,7 @@ Public Class Form1
         Else
             lblHealth.Visible = False
             lblGameOver.Visible = True
+            lblRetry.Visible = True
         End If
         lblHealth.Text = Ship.health
 
@@ -104,11 +112,14 @@ Public Class Form1
         StartStars()
     End Sub
 
+
+
     Private Function pointCircle(px As Decimal, py As Decimal, cx As Decimal, cy As Decimal, r As Decimal) As Boolean
         Dim distX As Decimal = px - cx
         Dim distY As Decimal = py - cy
         Dim distance = Math.Sqrt((distX * distX) + (distY * distY))
         Return distance <= r
     End Function
+
 
 End Class
