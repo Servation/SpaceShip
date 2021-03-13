@@ -100,6 +100,8 @@ Public Class Form1
                     Ship.py0 += 30
                     Ship.py1 += 30
                     Ship.py2 += 30
+                    Ship.speedX = Ast(i).speedX
+                    Ship.speedY = Ast(i).speedY
                 ElseIf (pointCircle(Ship.px1, Ship.py1, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Or pointCircle(Ship.px2, Ship.py2, Ast(i).cX, Ast(i).cY, Ast(i).Radius)) And Ship.health > 0 Then
                     Ast(i).y = -60
                     Ast(i).cX = Ast(i).x + 30
@@ -109,6 +111,8 @@ Public Class Form1
                     Ship.py0 += 20
                     Ship.py1 += 20
                     Ship.py2 += 20
+                    Ship.speedX = Ast(i).speedX
+                    Ship.speedY = Ast(i).speedY
                 End If
                 Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-8, 8) * 0.1)
                 Ast(i).visible = True
