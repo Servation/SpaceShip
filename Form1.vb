@@ -116,8 +116,8 @@ Public Class Form1
                 lblRetry.Visible = True
             End If
             tmrScore.Stop()
-                dead = True
-            End If
+            dead = True
+        End If
 
     End Sub
 
