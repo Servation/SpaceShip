@@ -8,7 +8,7 @@
     Public visible = True
     Public px0, py0, px1, py1, px2, py2 As Decimal
     Public alive As Boolean
-    Public health As Integer = 100
+    Public health As Integer = 1000
     Private thursters As Boolean = False
 
     Sub New(MainRect As Rectangle)
