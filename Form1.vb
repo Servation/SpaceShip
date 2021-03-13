@@ -6,6 +6,7 @@ Public Class Form1
     Private Stars(200) As Star
     Private keysPressed As New HashSet(Of Keys)
     Private gen As New Random
+    Dim score As Double = 0
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If keysPressed.Contains(Keys.A) And Ship.speedX > -Ship.maxSpeed Then
@@ -34,6 +35,9 @@ Public Class Form1
             lblPressSpace.Visible = False
             lblRetry.Visible = False
             lblHealth.Text = Ship.health
+            score = 0
+            tmrScore.Start()
+
         End If
     End Sub
     Private Sub Form1_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
@@ -101,6 +105,7 @@ Public Class Form1
             lblHealth.Visible = False
             lblGameOver.Visible = True
             lblRetry.Visible = True
+            tmrScore.Stop()
         End If
         lblHealth.Text = Ship.health
 
@@ -121,5 +126,8 @@ Public Class Form1
         Return distance <= r
     End Function
 
-
+    Private Sub tmrScore_Tick(sender As Object, e As EventArgs) Handles tmrScore.Tick
+        score += 10
+        lblScore.Text = score
+    End Sub
 End Class
