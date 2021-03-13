@@ -54,7 +54,7 @@ Partial Class Form1
         Me.lblGameOver.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.lblGameOver.Font = New System.Drawing.Font("Nirmala UI", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGameOver.ForeColor = System.Drawing.Color.Red
-        Me.lblGameOver.Location = New System.Drawing.Point(300, 379)
+        Me.lblGameOver.Location = New System.Drawing.Point(310, 379)
         Me.lblGameOver.Name = "lblGameOver"
         Me.lblGameOver.Size = New System.Drawing.Size(373, 86)
         Me.lblGameOver.TabIndex = 1
@@ -67,7 +67,7 @@ Partial Class Form1
         Me.lblPressSpace.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.lblPressSpace.Font = New System.Drawing.Font("Nirmala UI", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPressSpace.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblPressSpace.Location = New System.Drawing.Point(169, 261)
+        Me.lblPressSpace.Location = New System.Drawing.Point(179, 261)
         Me.lblPressSpace.Name = "lblPressSpace"
         Me.lblPressSpace.Size = New System.Drawing.Size(635, 86)
         Me.lblPressSpace.TabIndex = 2
@@ -79,7 +79,7 @@ Partial Class Form1
         Me.lblRetry.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.lblRetry.Font = New System.Drawing.Font("Nirmala UI", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRetry.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblRetry.Location = New System.Drawing.Point(160, 474)
+        Me.lblRetry.Location = New System.Drawing.Point(170, 474)
         Me.lblRetry.Name = "lblRetry"
         Me.lblRetry.Size = New System.Drawing.Size(652, 86)
         Me.lblRetry.TabIndex = 3
@@ -88,18 +88,22 @@ Partial Class Form1
         '
         'tmrScore
         '
+        Me.tmrScore.Interval = 200
         '
         'lblScore
         '
+        Me.lblScore.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.lblScore.AutoSize = True
         Me.lblScore.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.lblScore.Font = New System.Drawing.Font("Nirmala UI", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblScore.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblScore.Location = New System.Drawing.Point(465, 25)
+        Me.lblScore.Location = New System.Drawing.Point(485, 25)
         Me.lblScore.Name = "lblScore"
         Me.lblScore.Size = New System.Drawing.Size(43, 50)
         Me.lblScore.TabIndex = 5
         Me.lblScore.Text = "0"
+        Me.lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblScore.Visible = False
         '
         'Form1
         '

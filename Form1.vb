@@ -2,11 +2,12 @@
 Public Class Form1
     Private MainRect As Rectangle
     Private Ship As ShipStarter
-    Private Ast(10) As Asteroid
+    Private Ast(20) As Asteroid
     Private Stars(200) As Star
     Private keysPressed As New HashSet(Of Keys)
     Private gen As New Random
     Dim score As Double = 0
+    Private showAst As Integer = 1
     Private dead As Boolean = True
     Private start As Boolean = True
 
@@ -38,6 +39,7 @@ Public Class Form1
             lblPressSpace.Visible = False
             lblRetry.Visible = False
             lblHealth.Text = Ship.health
+            lblScore.Visible = True
             score = 0
             tmrScore.Start()
             dead = False
@@ -82,6 +84,7 @@ Public Class Form1
 
     Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
         Dim G As Graphics = e.Graphics
+        Dim intScore As Integer = Integer.TryParse(lblScore.Text, intScore)
 
         G.SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
         For i As Integer = 0 To Stars.Count - 1
@@ -89,7 +92,7 @@ Public Class Form1
             Stars(i).Update()
         Next
         If Ship.alive Then
-            For i As Integer = 0 To Ast.Count - 1
+            For i As Integer = 0 To showAst
                 Ast(i).Show(G)
                 If pointCircle(Ship.px0, Ship.py0, Ast(i).cX, Ast(i).cY, Ast(i).Radius) And Ship.health > 0 Then
                     Ast(i).y = -60
@@ -129,6 +132,7 @@ Public Class Form1
             End If
             tmrScore.Stop()
             dead = True
+            showAst = 1
         End If
 
     End Sub
@@ -149,7 +153,10 @@ Public Class Form1
     End Function
 
     Private Sub tmrScore_Tick(sender As Object, e As EventArgs) Handles tmrScore.Tick
-        score += 10
+        score += 5
         lblScore.Text = score
+        If showAst < Ast.Count - 1 Then
+            showAst += 1
+        End If
     End Sub
 End Class
