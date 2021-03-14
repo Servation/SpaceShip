@@ -2,7 +2,7 @@
 Public Class Form1
     Private MainRect As Rectangle
     Private Ship As ShipStarter
-    Private Ast(20) As Asteroid
+    Private Ast(30) As Asteroid
     Private Stars(200) As Star
     Private keysPressed As New HashSet(Of Keys)
     Private gen As New Random
@@ -155,8 +155,17 @@ Public Class Form1
     Private Sub tmrScore_Tick(sender As Object, e As EventArgs) Handles tmrScore.Tick
         score += 5
         lblScore.Text = score
-        If showAst < Ast.Count - 1 Then
+        If showAst < 5 And score Mod 20 = 0 Then
             showAst += 1
+        End If
+        If showAst < Ast.Count - 1 And score Mod 100 = 0 Then
+            showAst += 1
+            If Ship.health < 100 Then
+                Ship.health += 5
+                If Ship.health > 100 Then
+                    Ship.health = 100
+                End If
+            End If
         End If
     End Sub
 End Class
