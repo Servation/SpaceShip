@@ -44,7 +44,7 @@
         point1 = {New Point(x + 30, y + 0), New Point(x + 14, y + 30), New Point(x + 2, y + 60), New Point(x + 15, y + 50), New Point(x + 45, y + 50), New Point(x + 58, y + 60), New Point(x + 46, y + 30)}
         point2 = {New Point(x + 15, y + 50), New Point(x + 23, y + 54), New Point(x + 30, y + 56), New Point(x + 37, y + 54), New Point(x + 45, y + 50)}
         point3 = {New Point(x + 15, y + 50), New Point(x + 25, y + 52), New Point(x + 35, y + 52), New Point(x + 45, y + 50)}
-        healthP = {New Point(950, 950), New Point(970, 950), New Point(970, 750), New Point(950, 750)}
+        healthP = {New Point(949, 951), New Point(971, 951), New Point(971, 749), New Point(949, 749)}
         healthP2 = {New Point(950, 950), New Point(970, 950), New Point(970, 950 - health * 2), New Point(950, 950 - health * 2)}
         If visible Then
             G.FillPolygon(New SolidBrush(Color.GhostWhite), points)
@@ -55,8 +55,15 @@
         Else
             G.FillPolygon(New SolidBrush(Color.LightBlue), point3)
         End If
-        G.DrawPolygon(New Pen(Color.White), healthP)
-        G.FillPolygon(New SolidBrush(Color.Green), healthP2)
+        G.FillPolygon(New SolidBrush(Color.White), healthP)
+        If health > 45 Then
+            G.FillPolygon(New SolidBrush(Color.Green), healthP2)
+        ElseIf health > 25 Then
+            G.FillPolygon(New SolidBrush(Color.Yellow), healthP2)
+        Else
+            G.FillPolygon(New SolidBrush(Color.Red), healthP2)
+        End If
+
 
     End Sub
 
@@ -103,7 +110,7 @@
         ElseIf speedY < 0 Then
             speedY += 0.2
         End If
-        If speedY < 0 Then
+        If speedY < -0.2 Then
             thrusters = True
         Else
             thrusters = False

@@ -93,13 +93,12 @@ Partial Class Form1
         'lblScore
         '
         Me.lblScore.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.lblScore.AutoSize = True
         Me.lblScore.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.lblScore.Font = New System.Drawing.Font("Nirmala UI", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblScore.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblScore.Location = New System.Drawing.Point(485, 25)
+        Me.lblScore.Location = New System.Drawing.Point(442, 31)
         Me.lblScore.Name = "lblScore"
-        Me.lblScore.Size = New System.Drawing.Size(43, 50)
+        Me.lblScore.Size = New System.Drawing.Size(109, 50)
         Me.lblScore.TabIndex = 5
         Me.lblScore.Text = "0"
         Me.lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
