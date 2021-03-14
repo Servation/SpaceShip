@@ -96,7 +96,7 @@ Partial Class Form1
         Me.lblScore.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.lblScore.Font = New System.Drawing.Font("Nirmala UI", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblScore.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblScore.Location = New System.Drawing.Point(442, 31)
+        Me.lblScore.Location = New System.Drawing.Point(438, 31)
         Me.lblScore.Name = "lblScore"
         Me.lblScore.Size = New System.Drawing.Size(109, 50)
         Me.lblScore.TabIndex = 5
@@ -109,13 +109,16 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(993, 961)
+        Me.ClientSize = New System.Drawing.Size(984, 961)
         Me.Controls.Add(Me.lblScore)
         Me.Controls.Add(Me.lblRetry)
         Me.Controls.Add(Me.lblPressSpace)
         Me.Controls.Add(Me.lblGameOver)
         Me.Controls.Add(Me.lblHealth)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(1000, 1000)
+        Me.MinimumSize = New System.Drawing.Size(1000, 1000)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
