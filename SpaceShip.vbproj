@@ -132,7 +132,13 @@
     <None Include="Resources\TEST_White noise %28ID 1037%29_BSB.wav" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\WhiteNoise.wav" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\TEST_Pink noise %28ID 0432%29_BSB.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShipNoise.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

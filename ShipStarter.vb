@@ -85,16 +85,16 @@
             x = 0
             speedX -= speedX
         End If
-        If y < -30 Then
-            y = -30
+        If y < 25 Then
+            y = 25
             speedY -= speedY
         End If
         If x > MainRect.Width - 60 Then
             x = MainRect.Width - 60
             speedX -= speedX
         End If
-        If y > MainRect.Height - 90 Then
-            y = MainRect.Height - 90
+        If y > MainRect.Height - 65 Then
+            y = MainRect.Height - 65
             speedY -= speedY
         End If
         declerate()

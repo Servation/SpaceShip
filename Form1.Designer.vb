@@ -65,11 +65,11 @@ Partial Class Form1
         '
         Me.lblPressSpace.AutoSize = True
         Me.lblPressSpace.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblPressSpace.Font = New System.Drawing.Font("Nirmala UI", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPressSpace.Font = New System.Drawing.Font("Nirmala UI", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPressSpace.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblPressSpace.Location = New System.Drawing.Point(179, 261)
+        Me.lblPressSpace.Location = New System.Drawing.Point(312, 455)
         Me.lblPressSpace.Name = "lblPressSpace"
-        Me.lblPressSpace.Size = New System.Drawing.Size(635, 86)
+        Me.lblPressSpace.Size = New System.Drawing.Size(369, 50)
         Me.lblPressSpace.TabIndex = 2
         Me.lblPressSpace.Text = "Press Space To Start"
         '
@@ -77,11 +77,11 @@ Partial Class Form1
         '
         Me.lblRetry.AutoSize = True
         Me.lblRetry.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblRetry.Font = New System.Drawing.Font("Nirmala UI", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRetry.Font = New System.Drawing.Font("Nirmala UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRetry.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblRetry.Location = New System.Drawing.Point(170, 474)
+        Me.lblRetry.Location = New System.Drawing.Point(253, 476)
         Me.lblRetry.Name = "lblRetry"
-        Me.lblRetry.Size = New System.Drawing.Size(652, 86)
+        Me.lblRetry.Size = New System.Drawing.Size(487, 65)
         Me.lblRetry.TabIndex = 3
         Me.lblRetry.Text = "Press Space To Retry"
         Me.lblRetry.Visible = False

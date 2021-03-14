@@ -3,7 +3,7 @@ Public Class Form1
     Private MainRect As Rectangle
     Private Ship As ShipStarter
     Private Ast(30) As Asteroid
-    Private Stars(200) As Star
+    Private Stars(300) As Star
     Private keysPressed As New HashSet(Of Keys)
     Private gen As New Random
     Dim score As Double = 0
@@ -51,6 +51,7 @@ Public Class Form1
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DoubleBuffered = True
+        My.Computer.Audio.Play(My.Resources.ShipNoise, AudioPlayMode.BackgroundLoop)
     End Sub
 
     Private Sub StartShip()
@@ -73,8 +74,8 @@ Public Class Form1
             Stars(i) = New Star(MainRect)
             Stars(i).x = gen.Next(0, MainRect.Width)
             Stars(i).y = gen.Next(0, MainRect.Height)
-            Stars(i).size = gen.Next(1, 5)
-            Stars(i).speedY = gen.Next(1, 3) * 0.1
+            Stars(i).size = gen.Next(1, 4)
+            Stars(i).speedY = gen.Next(1, 20) * 0.1
         Next
     End Sub
 
@@ -165,5 +166,9 @@ Public Class Form1
                 End If
             End If
         End If
+    End Sub
+
+    Private Sub Form1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.Closed
+        My.Computer.Audio.Stop()
     End Sub
 End Class

@@ -63,9 +63,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         '''</summary>
-        Friend ReadOnly Property Noise() As System.IO.UnmanagedMemoryStream
+        Friend ReadOnly Property ShipNoise() As System.IO.UnmanagedMemoryStream
             Get
-                Return ResourceManager.GetStream("Noise", resourceCulture)
+                Return ResourceManager.GetStream("ShipNoise", resourceCulture)
             End Get
         End Property
     End Module
