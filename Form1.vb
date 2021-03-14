@@ -30,10 +30,6 @@ Public Class Form1
     Private Sub form1_keydown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         keysPressed.Add(e.KeyCode)
         If e.KeyCode = Keys.Space And dead Then
-            DoubleBuffered = True
-            StartStars()
-            StartShip()
-            StartAsteroid()
             lblHealth.Visible = True
             lblGameOver.Visible = False
             lblPressSpace.Visible = False
@@ -53,7 +49,7 @@ Public Class Form1
         keysPressed.Remove(e.KeyCode)
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        DoubleBuffered = True
     End Sub
 
     Private Sub StartShip()
@@ -93,7 +89,6 @@ Public Class Form1
         Next
         If Ship.alive Then
             For i As Integer = 0 To showAst
-                Ast(i).Show(G)
                 If pointCircle(Ship.px0, Ship.py0, Ast(i).cX, Ast(i).cY, Ast(i).Radius) And Ship.health > 0 Then
                     Ast(i).y = -60
                     Ast(i).cX = Ast(i).x + 30
@@ -119,8 +114,8 @@ Public Class Form1
                 End If
                 Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-8, 8) * 0.1)
                 Ast(i).visible = True
+                Ast(i).Show(G)
             Next
-
             Ship.Show(G)
             Ship.Update()
             lblHealth.Text = Ship.health

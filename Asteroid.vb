@@ -1,11 +1,11 @@
 ﻿Public Class Asteroid
-    Public x As Decimal
-    Public y As Decimal
-    Public cX As Decimal
-    Public cY As Decimal
-    Public Radius As Decimal
-    Public speedX As Decimal
-    Public speedY As Decimal
+    Public x As Double
+    Public y As Double
+    Public cX As Double
+    Public cY As Double
+    Public Radius As Double
+    Public speedX As Double
+    Public speedY As Double
     Public type As Integer
     Public visible As Boolean = False
     Private MainRect As Rectangle

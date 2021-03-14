@@ -1,15 +1,15 @@
 ﻿Public Class ShipStarter
-    Public x As Decimal
-    Public y As Decimal
+    Public x As Double
+    Public y As Double
     Public speedX As Decimal
     Public speedY As Decimal
     Public maxSpeed = 5
     Private MainRect As Rectangle
     Public visible = True
-    Public px0, py0, px1, py1, px2, py2 As Decimal
+    Public px0, py0, px1, py1, px2, py2 As Double
     Public alive As Boolean
     Public health As Integer = 100
-    Private thursters As Boolean = False
+    Private thrusters As Boolean = False
 
     Sub New(MainRect As Rectangle)
         Me.MainRect = MainRect
@@ -38,15 +38,15 @@
         Dim point2 As Point()
         Dim point3 As Point()
 
-        points = {New Point(x + 30, y + 0), New Point(x + 2, y + 40), New Point(x + 0, y + 65), New Point(x + 15, y + 50), New Point(x + 45, y + 50), New Point(x + 60, y + 65), New Point(x + 58, y + 40)}
+        points = {New Point(x + 30, y + 3), New Point(x + 2, y + 40), New Point(x + 0, y + 65), New Point(x + 15, y + 50), New Point(x + 45, y + 50), New Point(x + 60, y + 65), New Point(x + 58, y + 40)}
         point1 = {New Point(x + 30, y + 0), New Point(x + 14, y + 30), New Point(x + 2, y + 60), New Point(x + 15, y + 50), New Point(x + 45, y + 50), New Point(x + 58, y + 60), New Point(x + 46, y + 30)}
-        point2 = {New Point(x + 15, y + 50), New Point(x + 30, y + 55), New Point(x + 45, y + 50)}
-        point3 = {New Point(x + 15, y + 50), New Point(x + 30, y + 52), New Point(x + 45, y + 50)}
+        point2 = {New Point(x + 15, y + 50), New Point(x + 23, y + 54), New Point(x + 30, y + 56), New Point(x + 37, y + 54), New Point(x + 45, y + 50)}
+        point3 = {New Point(x + 15, y + 50), New Point(x + 25, y + 52), New Point(x + 35, y + 52), New Point(x + 45, y + 50)}
         If visible Then
-            G.FillPolygon(New SolidBrush(Color.FromArgb(200, 100, 100)), points)
-            G.FillPolygon(New SolidBrush(Color.FromArgb(80, 10, 10)), point1)
+            G.FillPolygon(New SolidBrush(Color.GhostWhite), points)
+            G.FillPolygon(New SolidBrush(Color.Crimson), point1)
         End If
-        If thursters Then
+        If thrusters Then
             G.FillPolygon(New SolidBrush(Color.LightBlue), point2)
         Else
             G.FillPolygon(New SolidBrush(Color.LightBlue), point3)
@@ -97,9 +97,9 @@
             speedY += 0.2
         End If
         If speedY < 0 Then
-            thursters = True
+            thrusters = True
         Else
-            thursters = False
+            thrusters = False
         End If
 
     End Sub

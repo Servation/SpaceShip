@@ -1,7 +1,7 @@
 ﻿Public Class Star
-    Public x As Decimal
-    Public y As Decimal
-    Public speedY As Decimal
+    Public x As Double
+    Public y As Double
+    Public speedY As Double
     Public size As Integer
     Private MainRect As Rectangle
 
