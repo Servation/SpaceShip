@@ -37,11 +37,15 @@
         Dim point1 As Point()
         Dim point2 As Point()
         Dim point3 As Point()
+        Dim healthP As Point()
+        Dim healthP2 As Point()
 
         points = {New Point(x + 30, y + 3), New Point(x + 2, y + 40), New Point(x + 0, y + 65), New Point(x + 15, y + 50), New Point(x + 45, y + 50), New Point(x + 60, y + 65), New Point(x + 58, y + 40)}
         point1 = {New Point(x + 30, y + 0), New Point(x + 14, y + 30), New Point(x + 2, y + 60), New Point(x + 15, y + 50), New Point(x + 45, y + 50), New Point(x + 58, y + 60), New Point(x + 46, y + 30)}
         point2 = {New Point(x + 15, y + 50), New Point(x + 23, y + 54), New Point(x + 30, y + 56), New Point(x + 37, y + 54), New Point(x + 45, y + 50)}
         point3 = {New Point(x + 15, y + 50), New Point(x + 25, y + 52), New Point(x + 35, y + 52), New Point(x + 45, y + 50)}
+        healthP = {New Point(950, 950), New Point(970, 950), New Point(970, 750), New Point(950, 750)}
+        healthP2 = {New Point(950, 950), New Point(970, 950), New Point(970, 950 - health * 2), New Point(950, 950 - health * 2)}
         If visible Then
             G.FillPolygon(New SolidBrush(Color.GhostWhite), points)
             G.FillPolygon(New SolidBrush(Color.Crimson), point1)
@@ -51,6 +55,9 @@
         Else
             G.FillPolygon(New SolidBrush(Color.LightBlue), point3)
         End If
+        G.DrawPolygon(New Pen(Color.White), healthP)
+        G.FillPolygon(New SolidBrush(Color.Green), healthP2)
+
     End Sub
 
     Public Sub Update()

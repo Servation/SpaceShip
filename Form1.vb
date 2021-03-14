@@ -30,11 +30,12 @@ Public Class Form1
     Private Sub form1_keydown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         keysPressed.Add(e.KeyCode)
         If e.KeyCode = Keys.Space And dead Then
-            lblHealth.Visible = True
+            StartShip()
+            StartAsteroid()
+            StartStars()
             lblGameOver.Visible = False
             lblPressSpace.Visible = False
             lblRetry.Visible = False
-            lblHealth.Text = Ship.health
             lblScore.Visible = True
             score = 0
             tmrScore.Start()
@@ -155,8 +156,10 @@ Public Class Form1
         End If
         If showAst < Ast.Count - 1 And score Mod 100 = 0 Then
             showAst += 1
+        End If
+        If score Mod 20 = 0 Then
             If Ship.health < 100 Then
-                Ship.health += 5
+                Ship.health += 1
                 If Ship.health > 100 Then
                     Ship.health = 100
                 End If
