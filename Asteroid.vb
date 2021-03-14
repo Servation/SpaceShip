@@ -4,8 +4,8 @@
     Public cX As Double
     Public cY As Double
     Public Radius As Double
-    Public speedX As Double
-    Public speedY As Double
+    Public speedX As Decimal
+    Public speedY As Decimal
     Public type As Integer
     Public visible As Boolean = False
     Private MainRect As Rectangle

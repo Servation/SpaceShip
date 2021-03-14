@@ -83,18 +83,30 @@
 
         If x < 0 Then
             x = 0
+            px0 = 30 + x
+            px1 = 0 + x
+            px2 = 60 + x
             speedX -= speedX
         End If
         If y < 25 Then
             y = 25
+            py0 = 0 + y
+            py1 = 65 + y
+            py2 = 65 + y
             speedY -= speedY
         End If
         If x > MainRect.Width - 60 Then
             x = MainRect.Width - 60
+            px0 = 30 + x
+            px1 = 0 + x
+            px2 = 60 + x
             speedX -= speedX
         End If
         If y > MainRect.Height - 65 Then
             y = MainRect.Height - 65
+            py0 = 0 + y
+            py1 = 65 + y
+            py2 = 65 + y
             speedY -= speedY
         End If
         declerate()
