@@ -64,7 +64,7 @@ Public Class Form1
             Ast(i) = New Asteroid(MainRect)
             Ast(i).x = gen.Next(0, MainRect.Width)
             Ast(i).speedY = gen.Next(20, 80) * 0.1
-            Ast(i).speedX = gen.Next(-8, 8) * 0.1
+            Ast(i).speedX = gen.Next(-11, 11) * 0.1
             Ast(i).type = gen.Next(0, 4)
             Ast(i).cX = Ast(i).x + 30
         Next
@@ -75,7 +75,7 @@ Public Class Form1
             Stars(i).x = gen.Next(0, MainRect.Width)
             Stars(i).y = gen.Next(0, MainRect.Height)
             Stars(i).size = gen.Next(1, 4)
-            Stars(i).speedY = gen.Next(1, 20) * 0.1
+            Stars(i).speedY = gen.Next(1, 10) * 0.1
         Next
     End Sub
 
@@ -96,10 +96,7 @@ Public Class Form1
                     Ast(i).cX = Ast(i).x + 30
                     Ast(i).cY = Ast(i).y + 30
                     Ship.health -= 34
-                    Ship.y += 30
-                    Ship.py0 += 30
-                    Ship.py1 += 30
-                    Ship.py2 += 30
+                    Ship.MoveY(30)
                     Ship.speedX = Ast(i).speedX
                     Ship.speedY = Ast(i).speedY
                 ElseIf (pointCircle(Ship.px1, Ship.py1, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Or pointCircle(Ship.px2, Ship.py2, Ast(i).cX, Ast(i).cY, Ast(i).Radius)) And Ship.health > 0 Then
@@ -107,10 +104,7 @@ Public Class Form1
                     Ast(i).cX = Ast(i).x + 30
                     Ast(i).cY = Ast(i).y + 30
                     Ship.health -= 24
-                    Ship.y += 20
-                    Ship.py0 += 20
-                    Ship.py1 += 20
-                    Ship.py2 += 20
+                    Ship.MoveY(20)
                     Ship.speedX = Ast(i).speedX
                     Ship.speedY = Ast(i).speedY
                 End If
@@ -171,4 +165,5 @@ Public Class Form1
     Private Sub Form1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.Closed
         My.Computer.Audio.Stop()
     End Sub
+
 End Class

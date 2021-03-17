@@ -1,8 +1,8 @@
 ﻿Public Class Star
-    Public x As Double
-    Public y As Double
-    Public speedY As Decimal
-    Public size As Integer
+    Public Property x As Double
+    Public Property y As Double
+    Public Property speedY As Decimal
+    Public Property size As Integer
     Private MainRect As Rectangle
 
     Sub New(MainRect As Rectangle)
@@ -15,14 +15,14 @@
     End Sub
 
     Public Sub Show(G As Graphics)
-        G.FillEllipse(New SolidBrush(Color.FromArgb(250, 250, 250)), New Rectangle(x - (size / 2), y - (size / 2), size, size)
+        G.FillEllipse(New SolidBrush(Color.FromArgb(250, 250, 250)), New Rectangle(_x - (_size / 2), _y - (_size / 2), _size, _size)
 )
     End Sub
 
     Public Sub Update()
-        y += speedY
-        If y > MainRect.Height + 90 Then
-            y = -3
+        _y += _speedY
+        If _y > MainRect.Height + 90 Then
+            _y = -3
         End If
 
     End Sub
