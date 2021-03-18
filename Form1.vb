@@ -55,7 +55,7 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DoubleBuffered = True
         My.Computer.Audio.Play(My.Resources.ShipNoise, AudioPlayMode.BackgroundLoop)
-
+        ReadFile()
     End Sub
 
     Private Sub StartShip()
@@ -124,7 +124,6 @@ Public Class Form1
                 lblGameOver.Visible = True
                 lblRetry.Visible = True
                 lblHScore.Visible = True
-                ReadFile()
             End If
             tmrScore.Stop()
             dead = True
@@ -193,19 +192,26 @@ Public Class Form1
     Private Sub SaveToFile()
         Dim outFile As IO.StreamWriter
         outFile = IO.File.CreateText("HighScores.txt")
+
         For intSub As Integer = 0 To 9
             Dim HScore As Double
+
             HScore = arrScore(intSub) & ControlChars.NewLine
+
             outFile.WriteLine(HScore)
+
         Next
         outFile.Close()
     End Sub
 
     Private Sub ReadFile()
         Dim inFile As IO.StreamReader
+
         If IO.File.Exists("HighScores.txt") Then
             inFile = IO.File.OpenText("HighScores.txt")
+
             Dim fileText As String
+
             Do Until inFile.Peek = -1
                 fileText = inFile.ReadLine
                 Dim list As String
