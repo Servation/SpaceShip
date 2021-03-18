@@ -30,7 +30,6 @@ Partial Class Form1
         Me.lblRetry = New System.Windows.Forms.Label()
         Me.tmrScore = New System.Windows.Forms.Timer(Me.components)
         Me.lblScore = New System.Windows.Forms.Label()
-        Me.lblHighscores = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Timer1
@@ -105,23 +104,12 @@ Partial Class Form1
         Me.lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lblScore.Visible = False
         '
-        'lblHighscores
-        '
-        Me.lblHighscores.AutoSize = True
-        Me.lblHighscores.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHighscores.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblHighscores.Location = New System.Drawing.Point(306, 570)
-        Me.lblHighscores.Name = "lblHighscores"
-        Me.lblHighscores.Size = New System.Drawing.Size(0, 24)
-        Me.lblHighscores.TabIndex = 6
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(984, 961)
-        Me.Controls.Add(Me.lblHighscores)
         Me.Controls.Add(Me.lblScore)
         Me.Controls.Add(Me.lblRetry)
         Me.Controls.Add(Me.lblPressSpace)
@@ -145,5 +133,4 @@ Partial Class Form1
     Friend WithEvents lblRetry As Label
     Friend WithEvents tmrScore As Timer
     Friend WithEvents lblScore As Label
-    Friend WithEvents lblHighscores As Label
 End Class

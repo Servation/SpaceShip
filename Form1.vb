@@ -6,7 +6,6 @@ Public Class Form1
     Private Stars(300) As Star
     Private keysPressed As New HashSet(Of Keys)
     Private gen As New Random
-    Private ScoreArray(9) As Integer
     Dim score As Double = 0
     Private showAst As Integer = 1
     Private dead As Boolean = True
@@ -53,25 +52,6 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DoubleBuffered = True
         My.Computer.Audio.Play(My.Resources.ShipNoise, AudioPlayMode.BackgroundLoop)
-
-    End Sub
-    Private Sub SaveToFile()
-        Dim outFile As IO.StreamWriter
-        outFile = IO.File.AppendText("HighScores.txt")
-
-        For intSub As Integer = 0 To 9
-
-
-
-
-
-
-
-            outFile.WriteLine()
-
-        Next
-        outFile.Close()
-
     End Sub
 
     Private Sub StartShip()
@@ -140,9 +120,6 @@ Public Class Form1
             If Not start Then
                 lblGameOver.Visible = True
                 lblRetry.Visible = True
-
-
-
             End If
             tmrScore.Stop()
             dead = True
@@ -163,7 +140,6 @@ Public Class Form1
         Dim distX As Decimal = px - cx
         Dim distY As Decimal = py - cy
         Dim distance = Math.Sqrt((distX * distX) + (distY * distY))
-
         Return distance <= r
     End Function
 
