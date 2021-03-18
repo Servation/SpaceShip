@@ -110,7 +110,7 @@ Partial Class Form1
         Me.lblHScore.AutoSize = True
         Me.lblHScore.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblHScore.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblHScore.Location = New System.Drawing.Point(410, 574)
+        Me.lblHScore.Location = New System.Drawing.Point(429, 574)
         Me.lblHScore.Name = "lblHScore"
         Me.lblHScore.Size = New System.Drawing.Size(127, 30)
         Me.lblHScore.TabIndex = 6
