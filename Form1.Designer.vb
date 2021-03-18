@@ -30,6 +30,7 @@ Partial Class Form1
         Me.lblRetry = New System.Windows.Forms.Label()
         Me.tmrScore = New System.Windows.Forms.Timer(Me.components)
         Me.lblScore = New System.Windows.Forms.Label()
+        Me.lblHScore = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Timer1
@@ -104,12 +105,25 @@ Partial Class Form1
         Me.lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lblScore.Visible = False
         '
+        'lblHScore
+        '
+        Me.lblHScore.AutoSize = True
+        Me.lblHScore.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblHScore.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblHScore.Location = New System.Drawing.Point(410, 574)
+        Me.lblHScore.Name = "lblHScore"
+        Me.lblHScore.Size = New System.Drawing.Size(127, 30)
+        Me.lblHScore.TabIndex = 6
+        Me.lblHScore.Text = "High Score:"
+        Me.lblHScore.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(984, 961)
+        Me.Controls.Add(Me.lblHScore)
         Me.Controls.Add(Me.lblScore)
         Me.Controls.Add(Me.lblRetry)
         Me.Controls.Add(Me.lblPressSpace)
@@ -133,4 +147,5 @@ Partial Class Form1
     Friend WithEvents lblRetry As Label
     Friend WithEvents tmrScore As Timer
     Friend WithEvents lblScore As Label
+    Friend WithEvents lblHScore As Label
 End Class

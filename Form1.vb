@@ -6,11 +6,12 @@ Public Class Form1
     Private Stars(300) As Star
     Private keysPressed As New HashSet(Of Keys)
     Private gen As New Random
-    Dim score As Double = 0
+    Private score As Double = 0
+    Private arrScore(9) As Double
     Private showAst As Integer = 1
     Private dead As Boolean = True
     Private start As Boolean = True
-
+    Private updatingScore As Boolean
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If keysPressed.Contains(Keys.A) And Ship.speedX > -Ship.maxSpeed Then
@@ -36,11 +37,13 @@ Public Class Form1
             lblGameOver.Visible = False
             lblPressSpace.Visible = False
             lblRetry.Visible = False
+            lblHScore.Visible = False
             lblScore.Visible = True
             score = 0
             tmrScore.Start()
             dead = False
             Ship.alive = True
+            updatingScore = True
             If start Then
                 start = False
             End If
@@ -78,7 +81,6 @@ Public Class Form1
             Stars(i).speedY = gen.Next(1, 10) * 0.1
         Next
     End Sub
-
 
     Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
         Dim G As Graphics = e.Graphics
@@ -120,12 +122,16 @@ Public Class Form1
             If Not start Then
                 lblGameOver.Visible = True
                 lblRetry.Visible = True
+                lblHScore.Visible = True
             End If
             tmrScore.Stop()
             dead = True
+            If updatingScore Then
+                updateArrScore(score)
+                updatingScore = False
+            End If
             showAst = 1
         End If
-
     End Sub
 
     Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles Me.Resize
@@ -133,8 +139,6 @@ Public Class Form1
         StartAsteroid()
         StartStars()
     End Sub
-
-
 
     Private Function pointCircle(px As Decimal, py As Decimal, cx As Decimal, cy As Decimal, r As Decimal) As Boolean
         Dim distX As Decimal = px - cx
@@ -166,4 +170,18 @@ Public Class Form1
         My.Computer.Audio.Stop()
     End Sub
 
+    Private Sub updateArrScore(s As Double)
+        Dim last As Integer = arrScore.Count - 1
+        If s > arrScore(last) Then
+            arrScore(last) = s
+        End If
+        Array.Sort(arrScore)
+        Array.Reverse(arrScore)
+        Dim HighScore As String
+        HighScore = "High Score:" + Environment.NewLine
+        For Each s In arrScore
+            HighScore &= s & Environment.NewLine
+        Next s
+        lblHScore.Text = HighScore
+    End Sub
 End Class
