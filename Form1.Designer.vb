@@ -116,6 +116,7 @@ Partial Class Form1
         Me.lblHScore.TabIndex = 6
         Me.lblHScore.Text = "High Score:"
         Me.lblHScore.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.lblHScore.Visible = False
         '
         'Form1
         '

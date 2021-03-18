@@ -180,7 +180,9 @@ Public Class Form1
         Dim HighScore As String
         HighScore = "High Score:" + Environment.NewLine
         For Each s In arrScore
-            HighScore &= s & Environment.NewLine
+            If s > 0 Then
+                HighScore &= s & Environment.NewLine
+            End If
         Next s
         lblHScore.Text = HighScore
     End Sub
