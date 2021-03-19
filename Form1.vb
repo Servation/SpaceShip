@@ -212,12 +212,10 @@ Public Class Form1
 
             Dim fileText As String
 
-            Do Until inFile.Peek = -1
+            For i As Integer = 0 To 9
                 fileText = inFile.ReadLine
-                Dim list As String
-                list += fileText & ControlChars.NewLine
-                lblHScore.Text = list
-            Loop
+                arrScore(i) = fileText
+            Next i
             inFile.Close()
         Else
             MessageBox.Show("File does not exist")
