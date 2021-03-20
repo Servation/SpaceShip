@@ -53,8 +53,8 @@
                     G.DrawPolygon(New Pen(Color.Black), points)
                     G.FillPolygon(New SolidBrush(Color.FromArgb(100, 90, 90)), points)
                 Else
-                    G.DrawPolygon(New Pen(Color.RosyBrown), points)
-                    G.FillPolygon(New SolidBrush(Color.SandyBrown), points)
+                    G.DrawPolygon(New Pen(Color.Gold), points)
+                    G.FillPolygon(New SolidBrush(Color.DarkSlateGray), points)
                 End If
             End If
 
