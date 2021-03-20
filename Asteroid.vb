@@ -9,6 +9,8 @@
     Public Property type As Integer
     Public Property visible As Boolean = True
     Public Property health As Integer
+    Public Property special As Integer
+    Public Property worth As Integer
     Private MainRect As Rectangle
 
     Sub New(MainRect As Rectangle)
@@ -39,17 +41,27 @@
 
 
             If health < 99 Then
-                G.DrawPolygon(New Pen(Color.BlueViolet), points)
-                G.FillPolygon(New SolidBrush(Color.FromArgb(100, 90, 140)), points)
+                If _special <> 1 Then
+                    G.DrawPolygon(New Pen(Color.BlueViolet), points)
+                    G.FillPolygon(New SolidBrush(Color.FromArgb(100, 90, 140)), points)
+                Else
+                    G.DrawPolygon(New Pen(Color.Goldenrod), points)
+                    G.FillPolygon(New SolidBrush(Color.Gold), points)
+                End If
             Else
-                G.DrawPolygon(New Pen(Color.Black), points)
-                G.FillPolygon(New SolidBrush(Color.FromArgb(100, 90, 90)), points)
+                If _special <> 1 Then
+                    G.DrawPolygon(New Pen(Color.Black), points)
+                    G.FillPolygon(New SolidBrush(Color.FromArgb(100, 90, 90)), points)
+                Else
+                    G.DrawPolygon(New Pen(Color.RosyBrown), points)
+                    G.FillPolygon(New SolidBrush(Color.SandyBrown), points)
+                End If
             End If
 
         End If
     End Sub
 
-    Public Sub Update(i As Decimal, n As Decimal, a As Decimal, b As Integer)
+    Public Sub Update(i As Decimal, n As Decimal, a As Decimal, b As Integer, s As Integer)
         _x += _speedX
         _y += _speedY
         _cX += _speedX
@@ -58,6 +70,7 @@
             visible = False
         End If
         If _y > MainRect.Height + 90 Then
+            _special = s
             _type = b
             _speedX = n
             _speedY = a
@@ -66,7 +79,13 @@
             _cY = -30
             _cX = i + 30
             _visible = True
-            _health = 100
+            If special <> 1 Then
+                _health = 100
+                _worth = 15
+            Else
+                _health = 150
+                _worth = 500
+            End If
         End If
 
     End Sub
