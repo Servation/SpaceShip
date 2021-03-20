@@ -143,9 +143,6 @@ Public Class Form1
                         Lasers(n).visible = False
                         If Ast(i).health <= 0 Then
                             score += Ast(i).worth
-                            If Ship.health < 70 Then
-                                Ship.health += 5
-                            End If
                         End If
                     End If
                 Next
@@ -200,10 +197,10 @@ Public Class Form1
             showAst += 1
         End If
         If counter Mod 50 = 0 Then
-            score += 2
-            If Ship.health < 100 Then
-                Ship.health += 1
-            End If
+            score += 1
+        End If
+        If Ship.health < 100 And Ship.energy = 100 Then
+            Ship.health += 1
         End If
     End Sub
 
