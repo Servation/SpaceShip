@@ -139,7 +139,7 @@ Public Class Form1
                         Ast(i).health -= 51
                         Lasers(n).visible = False
                         If Ast(i).health <= 0 Then
-                            score += 25
+                            score += 15
                         End If
                     End If
                 Next
@@ -182,7 +182,7 @@ Public Class Form1
     End Function
 
     Private Sub tmrScore_Tick(sender As Object, e As EventArgs) Handles tmrScore.Tick
-        score += 5
+        score += 1
         lblScore.Text = score
         If showAst < 5 And score Mod 20 = 0 Then
             showAst += 1
