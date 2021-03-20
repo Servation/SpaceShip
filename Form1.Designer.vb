@@ -70,9 +70,9 @@ Partial Class Form1
         Me.lblPressSpace.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblPressSpace.Location = New System.Drawing.Point(312, 455)
         Me.lblPressSpace.Name = "lblPressSpace"
-        Me.lblPressSpace.Size = New System.Drawing.Size(369, 50)
+        Me.lblPressSpace.Size = New System.Drawing.Size(358, 50)
         Me.lblPressSpace.TabIndex = 2
-        Me.lblPressSpace.Text = "Press Space To Start"
+        Me.lblPressSpace.Text = "Press Enter To Start"
         '
         'lblRetry
         '
@@ -82,9 +82,9 @@ Partial Class Form1
         Me.lblRetry.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblRetry.Location = New System.Drawing.Point(253, 476)
         Me.lblRetry.Name = "lblRetry"
-        Me.lblRetry.Size = New System.Drawing.Size(487, 65)
+        Me.lblRetry.Size = New System.Drawing.Size(475, 65)
         Me.lblRetry.TabIndex = 3
-        Me.lblRetry.Text = "Press Space To Retry"
+        Me.lblRetry.Text = "Press Enter To Retry"
         Me.lblRetry.Visible = False
         '
         'tmrScore

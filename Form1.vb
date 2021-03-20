@@ -2,8 +2,10 @@
 Public Class Form1
     Private MainRect As Rectangle
     Private Ship As ShipStarter
-    Private Ast(30) As Asteroid
+    Private Ast(80) As Asteroid
     Private Stars(300) As Star
+    Private Lasers(4) As Weapon
+    Private logicalLaser As Integer
     Private keysPressed As New HashSet(Of Keys)
     Private gen As New Random
     Private score As Double = 0
@@ -30,10 +32,11 @@ Public Class Form1
     End Sub
     Private Sub form1_keydown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         keysPressed.Add(e.KeyCode)
-        If e.KeyCode = Keys.Space And dead Then
+        If e.KeyCode = Keys.Enter And dead Then
             StartShip()
             StartAsteroid()
             StartStars()
+            StartLaser()
             lblGameOver.Visible = False
             lblPressSpace.Visible = False
             lblRetry.Visible = False
@@ -48,9 +51,25 @@ Public Class Form1
                 start = False
             End If
         End If
+        If Not dead Then
+            If e.KeyCode = Keys.Space And Not Lasers(logicalLaser).visible Then
+                Lasers(logicalLaser).visible = True
+                Lasers(logicalLaser).x = Ship.px0
+                Lasers(logicalLaser).y = Ship.py0
+                Lasers(logicalLaser).speedY = -10
+            End If
+        End If
+
     End Sub
     Private Sub Form1_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
         keysPressed.Remove(e.KeyCode)
+        If e.KeyCode = Keys.Space Then
+            If logicalLaser < 4 Then
+                logicalLaser += 1
+            Else
+                logicalLaser = 0
+            End If
+        End If
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DoubleBuffered = True
@@ -68,7 +87,7 @@ Public Class Form1
             Ast(i) = New Asteroid(MainRect)
             Ast(i).x = gen.Next(0, MainRect.Width)
             Ast(i).speedY = gen.Next(20, 80) * 0.1
-            Ast(i).speedX = gen.Next(-11, 11) * 0.1
+            Ast(i).speedX = gen.Next(-11, 11) * 0.2
             Ast(i).type = gen.Next(0, 4)
             Ast(i).cX = Ast(i).x + 30
         Next
@@ -83,6 +102,12 @@ Public Class Form1
         Next
     End Sub
 
+    Private Sub StartLaser()
+        For i As Integer = 0 To Lasers.Count - 1
+            Lasers(i) = New Weapon(MainRect)
+        Next
+    End Sub
+
     Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
         Dim G As Graphics = e.Graphics
         Dim intScore As Integer = Integer.TryParse(lblScore.Text, intScore)
@@ -94,26 +119,34 @@ Public Class Form1
         Next
         If Ship.alive Then
             For i As Integer = 0 To showAst
-                If pointCircle(Ship.px0, Ship.py0, Ast(i).cX, Ast(i).cY, Ast(i).Radius) And Ship.health > 0 Then
-                    Ast(i).y = -60
-                    Ast(i).cX = Ast(i).x + 30
-                    Ast(i).cY = Ast(i).y + 30
+                If pointCircle(Ship.px0, Ship.py0, Ast(i).cX, Ast(i).cY, Ast(i).Radius) And Ship.health > 0 And Ast(i).visible Then
+                    Ast(i).health = 0
                     Ship.health -= 34
                     Ship.MoveY(30)
                     Ship.speedX = Ast(i).speedX
                     Ship.speedY = Ast(i).speedY
-                ElseIf (pointCircle(Ship.px1, Ship.py1, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Or pointCircle(Ship.px2, Ship.py2, Ast(i).cX, Ast(i).cY, Ast(i).Radius)) And Ship.health > 0 Then
-                    Ast(i).y = -60
-                    Ast(i).cX = Ast(i).x + 30
-                    Ast(i).cY = Ast(i).y + 30
+                ElseIf (pointCircle(Ship.px1, Ship.py1, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Or pointCircle(Ship.px2, Ship.py2, Ast(i).cX, Ast(i).cY, Ast(i).Radius)) And Ship.health > 0 And Ast(i).visible Then
+                    Ast(i).health = 0
                     Ship.health -= 24
                     Ship.MoveY(20)
                     Ship.speedX = Ast(i).speedX
                     Ship.speedY = Ast(i).speedY
                 End If
                 Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-8, 8) * 0.1)
-                Ast(i).visible = True
                 Ast(i).Show(G)
+                For n As Integer = 0 To Lasers.Count - 1
+                    If (pointCircle(Lasers(n).x, Lasers(n).y, Ast(i).cX, Ast(i).cY, Ast(i).Radius)) And Lasers(n).visible And Ast(i).visible Then
+                        Ast(i).health -= 51
+                        Lasers(n).visible = False
+                        If Ast(i).health <= 0 Then
+                            score += 25
+                        End If
+                    End If
+                Next
+            Next
+            For n As Integer = 0 To Lasers.Count - 1
+                Lasers(n).Show(G)
+                Lasers(n).Update()
             Next
             Ship.Show(G)
             Ship.Update()

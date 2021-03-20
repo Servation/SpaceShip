@@ -7,7 +7,8 @@
     Public Property speedX As Decimal
     Public Property speedY As Decimal
     Public Property type As Integer
-    Public Property visible As Boolean = False
+    Public Property visible As Boolean = True
+    Public Property health As Integer
     Private MainRect As Rectangle
 
     Sub New(MainRect As Rectangle)
@@ -36,7 +37,12 @@
                     points = {New Point(_x + 31, _y + 1), New Point(_x + 8, _y + 5), New Point(_x + 1, _y + 31), New Point(_x + 12, _y + 49), New Point(_x + 31, _y + 61), New Point(_x + 47, _y + 47), New Point(_x + 59, _y + 31), New Point(_x + 42, _y + 8)}
             End Select
 
-            G.DrawPolygon(New Pen(Color.White), points)
+
+            If health < 99 Then
+                G.DrawPolygon(New Pen(Color.Red), points)
+            Else
+                G.DrawPolygon(New Pen(Color.Yellow), points)
+            End If
             G.FillPolygon(New SolidBrush(Color.FromArgb(100, 90, 90)), points)
         End If
     End Sub
@@ -46,12 +52,17 @@
         _y += _speedY
         _cX += _speedX
         _cY += _speedY
+        If health <= 0 Then
+            visible = False
+        End If
         If _y > MainRect.Height + 90 Then
             _speedX = n
             _y = -60
             _x = i
             _cY = -30
             _cX = i + 30
+            _visible = True
+            _health = 100
         End If
 
     End Sub
