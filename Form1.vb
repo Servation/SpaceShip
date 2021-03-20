@@ -9,6 +9,7 @@ Public Class Form1
     Private keysPressed As New HashSet(Of Keys)
     Private gen As New Random
     Private score As Double = 0
+    Private counter As Integer = 0
     Private arrScore(9) As Double
     Private showAst As Integer = 1
     Private dead As Boolean = True
@@ -183,19 +184,17 @@ Public Class Form1
 
     Private Sub tmrScore_Tick(sender As Object, e As EventArgs) Handles tmrScore.Tick
         score += 1
+        counter += 5
         lblScore.Text = score
-        If showAst < 5 And score Mod 20 = 0 Then
+        If showAst < 5 And counter Mod 10 = 0 Then
             showAst += 1
         End If
-        If showAst < Ast.Count - 1 And score Mod 100 = 0 Then
+        If showAst < Ast.Count - 1 And counter Mod 100 = 0 Then
             showAst += 1
         End If
-        If score Mod 20 = 0 Then
+        If counter Mod 100 = 0 Then
             If Ship.health < 100 Then
                 Ship.health += 1
-                If Ship.health > 100 Then
-                    Ship.health = 100
-                End If
             End If
         End If
     End Sub
