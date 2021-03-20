@@ -141,6 +141,9 @@ Public Class Form1
                         Lasers(n).visible = False
                         If Ast(i).health <= 0 Then
                             score += 15
+                            If Ship.health < 95 Then
+                                Ship.health += 5
+                            End If
                         End If
                     End If
                 Next

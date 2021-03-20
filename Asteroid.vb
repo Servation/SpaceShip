@@ -41,7 +41,7 @@
             If health < 99 Then
                 G.DrawPolygon(New Pen(Color.Red), points)
             Else
-                G.DrawPolygon(New Pen(Color.Yellow), points)
+                G.DrawPolygon(New Pen(Color.Black), points)
             End If
             G.FillPolygon(New SolidBrush(Color.FromArgb(100, 90, 90)), points)
         End If
