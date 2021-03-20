@@ -53,12 +53,12 @@ Public Class Form1
             End If
         End If
         If Not dead Then
-            If e.KeyCode = Keys.Space And Not Lasers(logicalLaser).visible And Ship.energy >= 4 Then
+            If e.KeyCode = Keys.Space And Not Lasers(logicalLaser).visible And Ship.energy >= 15 Then
                 Lasers(logicalLaser).visible = True
                 Lasers(logicalLaser).x = Ship.px0
                 Lasers(logicalLaser).y = Ship.py0
                 Lasers(logicalLaser).speedY = -15
-                Ship.energy -= 4
+                Ship.energy -= 15
             End If
         End If
 
@@ -189,8 +189,8 @@ Public Class Form1
     Private Sub tmrScore_Tick(sender As Object, e As EventArgs) Handles tmrScore.Tick
         counter += 5
         lblScore.Text = score
-        If Ship.energy <= 98 Then
-            Ship.energy += 2
+        If Ship.energy <= 95 Then
+            Ship.energy += 5
         End If
         If showAst < 5 And counter Mod 10 = 0 Then
             showAst += 1
