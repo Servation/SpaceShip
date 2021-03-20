@@ -4,7 +4,7 @@ Public Class Form1
     Private Ship As ShipStarter
     Private Ast(80) As Asteroid
     Private Stars(300) As Star
-    Private Lasers(4) As Weapon
+    Private Lasers(20) As Weapon
     Private logicalLaser As Integer
     Private keysPressed As New HashSet(Of Keys)
     Private gen As New Random
@@ -53,11 +53,12 @@ Public Class Form1
             End If
         End If
         If Not dead Then
-            If e.KeyCode = Keys.Space And Not Lasers(logicalLaser).visible Then
+            If e.KeyCode = Keys.Space And Not Lasers(logicalLaser).visible And Ship.energy >= 4 Then
                 Lasers(logicalLaser).visible = True
                 Lasers(logicalLaser).x = Ship.px0
                 Lasers(logicalLaser).y = Ship.py0
-                Lasers(logicalLaser).speedY = -10
+                Lasers(logicalLaser).speedY = -15
+                Ship.energy -= 4
             End If
         End If
 
@@ -65,7 +66,7 @@ Public Class Form1
     Private Sub Form1_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
         keysPressed.Remove(e.KeyCode)
         If e.KeyCode = Keys.Space Then
-            If logicalLaser < 4 Then
+            If logicalLaser < 10 Then
                 logicalLaser += 1
             Else
                 logicalLaser = 0
@@ -188,6 +189,9 @@ Public Class Form1
     Private Sub tmrScore_Tick(sender As Object, e As EventArgs) Handles tmrScore.Tick
         counter += 5
         lblScore.Text = score
+        If Ship.energy <= 98 Then
+            Ship.energy += 2
+        End If
         If showAst < 5 And counter Mod 10 = 0 Then
             showAst += 1
         End If

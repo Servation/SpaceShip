@@ -13,6 +13,7 @@
     Public Property py2 As Double
     Public Property alive As Boolean
     Public Property health As Integer = 100
+    Public Property energy As Integer = 100
     Private thrusters As Boolean = False
     Private MainRect As Rectangle
 
@@ -44,6 +45,8 @@
         Dim point3 As Point()
         Dim healthP As Point()
         Dim healthP2 As Point()
+        Dim energyP As Point()
+        Dim energyP2 As Point()
 
         points = {New Point(_x + 30, _y + 3), New Point(_x + 2, _y + 40), New Point(_x + 0, _y + 65), New Point(_x + 15, _y + 50), New Point(_x + 45, _y + 50), New Point(_x + 60, _y + 65), New Point(_x + 58, _y + 40)}
         point1 = {New Point(_x + 30, _y + 0), New Point(_x + 14, _y + 30), New Point(_x + 2, _y + 60), New Point(_x + 15, _y + 50), New Point(_x + 45, _y + 50), New Point(_x + 58, _y + 60), New Point(_x + 46, _y + 30)}
@@ -51,6 +54,8 @@
         point3 = {New Point(_x + 15, _y + 50), New Point(_x + 25, _y + 52), New Point(_x + 35, _y + 52), New Point(_x + 45, _y + 50)}
         healthP = {New Point(949, 951), New Point(971, 951), New Point(971, 749), New Point(949, 749)}
         healthP2 = {New Point(950, 950), New Point(970, 950), New Point(970, 950 - _health * 2), New Point(950, 950 - _health * 2)}
+        energyP = {New Point(919, 951), New Point(941, 951), New Point(941, 749), New Point(919, 749)}
+        energyP2 = {New Point(920, 950), New Point(940, 950), New Point(940, 950 - _energy * 2), New Point(920, 950 - _energy * 2)}
         If _visible Then
             G.FillPolygon(New SolidBrush(Color.GhostWhite), points)
             G.FillPolygon(New SolidBrush(Color.Crimson), point1)
@@ -68,6 +73,8 @@
         Else
             G.FillPolygon(New SolidBrush(Color.Red), healthP2)
         End If
+        G.FillPolygon(New SolidBrush(Color.White), energyP)
+        G.FillPolygon(New SolidBrush(Color.BlueViolet), energyP2)
 
 
     End Sub
