@@ -17,7 +17,7 @@
 
     Public Sub Show(G As Graphics)
         If _visible Then
-            G.FillPolygon(New SolidBrush(Color.FromArgb(250, 50, 0)), {New Point(x - 2, y), New Point(x - 2, y + 20), New Point(x + 2, y + 20), New Point(x + 2, y)})
+            G.FillPolygon(New SolidBrush(Color.BlueViolet), {New Point(x - 2, y), New Point(x - 2, y + 20), New Point(x + 2, y + 20), New Point(x + 2, y)})
         End If
 
     End Sub
