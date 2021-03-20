@@ -47,7 +47,7 @@
         End If
     End Sub
 
-    Public Sub Update(i As Decimal, n As Decimal)
+    Public Sub Update(i As Decimal, n As Decimal, a As Decimal, b As Integer)
         _x += _speedX
         _y += _speedY
         _cX += _speedX
@@ -56,7 +56,9 @@
             visible = False
         End If
         If _y > MainRect.Height + 90 Then
+            _type = b
             _speedX = n
+            _speedY = a
             _y = -60
             _x = i
             _cY = -30

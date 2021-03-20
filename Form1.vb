@@ -133,7 +133,7 @@ Public Class Form1
                     Ship.speedX = Ast(i).speedX
                     Ship.speedY = Ast(i).speedY
                 End If
-                Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-8, 8) * 0.1)
+                Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-11, 11) * 0.2, gen.Next(20, 80) * 0.1, gen.Next(0, 4))
                 Ast(i).Show(G)
                 For n As Integer = 0 To Lasers.Count - 1
                     If (pointCircle(Lasers(n).x, Lasers(n).y, Ast(i).cX, Ast(i).cY, Ast(i).Radius)) And Lasers(n).visible And Ast(i).visible Then
@@ -141,7 +141,7 @@ Public Class Form1
                         Lasers(n).visible = False
                         If Ast(i).health <= 0 Then
                             score += 15
-                            If Ship.health < 95 Then
+                            If Ship.health < 70 Then
                                 Ship.health += 5
                             End If
                         End If
@@ -186,7 +186,6 @@ Public Class Form1
     End Function
 
     Private Sub tmrScore_Tick(sender As Object, e As EventArgs) Handles tmrScore.Tick
-        score += 1
         counter += 5
         lblScore.Text = score
         If showAst < 5 And counter Mod 10 = 0 Then
@@ -195,7 +194,8 @@ Public Class Form1
         If showAst < Ast.Count - 1 And counter Mod 100 = 0 Then
             showAst += 1
         End If
-        If counter Mod 100 = 0 Then
+        If counter Mod 50 = 0 Then
+            score += 2
             If Ship.health < 100 Then
                 Ship.health += 1
             End If
