@@ -52,7 +52,7 @@ Partial Class Form1
         'lblGameOver
         '
         Me.lblGameOver.AutoSize = True
-        Me.lblGameOver.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.lblGameOver.BackColor = System.Drawing.Color.Transparent
         Me.lblGameOver.Font = New System.Drawing.Font("Nirmala UI", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGameOver.ForeColor = System.Drawing.Color.Crimson
         Me.lblGameOver.Location = New System.Drawing.Point(306, 315)
@@ -65,7 +65,7 @@ Partial Class Form1
         'lblRetry
         '
         Me.lblRetry.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblRetry.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.lblRetry.BackColor = System.Drawing.Color.Transparent
         Me.lblRetry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblRetry.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.lblRetry.Font = New System.Drawing.Font("Nirmala UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -99,6 +99,7 @@ Partial Class Form1
         'lblHScore
         '
         Me.lblHScore.AutoSize = True
+        Me.lblHScore.BackColor = System.Drawing.Color.Transparent
         Me.lblHScore.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblHScore.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblHScore.Location = New System.Drawing.Point(429, 532)
@@ -111,6 +112,7 @@ Partial Class Form1
         'lblTitle
         '
         Me.lblTitle.AutoSize = True
+        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Harlow Solid Italic", 72.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.BlueViolet
         Me.lblTitle.Location = New System.Drawing.Point(61, 187)
