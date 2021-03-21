@@ -33,26 +33,6 @@ Public Class Form1
     End Sub
     Private Sub form1_keydown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         keysPressed.Add(e.KeyCode)
-        If e.KeyCode = Keys.Enter And dead Then
-            Cursor.Hide()
-            StartShip()
-            StartAsteroid()
-            StartStars()
-            StartLaser()
-            lblGameOver.Visible = False
-            lblPressSpace.Visible = False
-            lblRetry.Visible = False
-            lblHScore.Visible = False
-            lblScore.Visible = True
-            score = 0
-            tmrScore.Start()
-            dead = False
-            Ship.alive = True
-            updatingScore = True
-            If start Then
-                start = False
-            End If
-        End If
         If Not dead Then
             If e.KeyCode = Keys.Space And Not Lasers(logicalLaser).visible And Ship.energy >= 15 Then
                 Lasers(logicalLaser).visible = True
@@ -62,7 +42,26 @@ Public Class Form1
                 Ship.energy -= 15
             End If
         End If
-
+    End Sub
+    Private Sub lblRetry_Click(sender As Object, e As EventArgs) Handles lblRetry.Click
+        StartShip()
+        StartAsteroid()
+        StartStars()
+        StartLaser()
+        lblGameOver.Visible = False
+        lblTitle.Visible = False
+        lblRetry.Visible = False
+        lblHScore.Visible = False
+        lblScore.Visible = True
+        score = 0
+        tmrScore.Start()
+        dead = False
+        Ship.alive = True
+        updatingScore = True
+        Cursor.Hide()
+        If start Then
+            start = False
+        End If
     End Sub
     Private Sub Form1_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
         keysPressed.Remove(e.KeyCode)
@@ -78,6 +77,7 @@ Public Class Form1
         DoubleBuffered = True
         My.Computer.Audio.Play(My.Resources.ShipNoise, AudioPlayMode.BackgroundLoop)
         ReadFile()
+        updateArrScore(score)
     End Sub
 
     Private Sub StartShip()
@@ -156,11 +156,12 @@ Public Class Form1
             Ship.Update()
             lblHealth.Text = Ship.health
         Else
-
             lblHealth.Visible = False
             If Not start Then
                 lblGameOver.Visible = True
+                lblTitle.Visible = True
                 lblRetry.Visible = True
+                lblRetry.Text = "Restart"
                 lblHScore.Visible = True
                 Cursor.Show()
             End If
@@ -262,7 +263,4 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub lblRetry_Click(sender As Object, e As EventArgs) Handles lblRetry.Click
-
-    End Sub
 End Class
