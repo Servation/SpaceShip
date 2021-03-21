@@ -41,20 +41,44 @@
 
 
             If health < 99 Then
-                If _special <> 1 Then
-                    G.DrawPolygon(New Pen(Color.BlueViolet), points)
-                    G.FillPolygon(New SolidBrush(Color.FromArgb(100, 90, 140)), points)
-                Else
+                If _special = 1 Or _special = 2 Then
                     G.DrawPolygon(New Pen(Color.Goldenrod), points)
                     G.FillPolygon(New SolidBrush(Color.Gold), points)
+                    points = {New Point(_x + 33, _y + 20), New Point(_x + 47, _y + 9), New Point(_x + 52, _y + 7), New Point(_x + 53, _y + 13), New Point(_x + 44, _y + 27), New Point(_x + 36, _y + 27)}
+                    G.DrawPolygon(New Pen(Color.Black), points)
+                    G.FillPolygon(New SolidBrush(Color.Gold), points)
+                ElseIf _special = 3 Then
+                    G.DrawPolygon(New Pen(Color.LightSteelBlue), points)
+                    G.FillPolygon(New SolidBrush(Color.SteelBlue), points)
+                    points = {New Point(_x + 16, _y + 7), New Point(_x + 32, _y + 13), New Point(_x + 30, _y + 20), New Point(_x + 19, _y + 27), New Point(_x + 12, _y + 27), New Point(_x + 10, _y + 12)}
+                    G.DrawPolygon(New Pen(Color.Black), points)
+                    G.FillPolygon(New SolidBrush(Color.SteelBlue), points)
+                    points = {New Point(_x + 39, _y + 45), New Point(_x + 46, _y + 43), New Point(_x + 54, _y + 59), New Point(_x + 50, _y + 64), New Point(_x + 36, _y + 52)}
+                    G.DrawPolygon(New Pen(Color.Black), points)
+                    G.FillPolygon(New SolidBrush(Color.SteelBlue), points)
+                Else
+                    G.DrawPolygon(New Pen(Color.BlueViolet), points)
+                    G.FillPolygon(New SolidBrush(Color.FromArgb(100, 90, 110)), points)
                 End If
             Else
-                If _special <> 1 Then
+                If _special = 1 Or _special = 2 Then
+                    G.DrawPolygon(New Pen(Color.Gold), points)
+                    G.FillPolygon(New SolidBrush(Color.FromArgb(110, 100, 90)), points)
+                    points = {New Point(_x + 33, _y + 20), New Point(_x + 47, _y + 9), New Point(_x + 52, _y + 7), New Point(_x + 53, _y + 13), New Point(_x + 44, _y + 27), New Point(_x + 36, _y + 27)}
+                    G.DrawPolygon(New Pen(Color.Black), points)
+                    G.FillPolygon(New SolidBrush(Color.Gold), points)
+                ElseIf _special = 3 Then
+                    G.DrawPolygon(New Pen(Color.LightSteelBlue), points)
+                    G.FillPolygon(New SolidBrush(Color.FromArgb(90, 90, 110)), points)
+                    points = {New Point(_x + 16, _y + 7), New Point(_x + 32, _y + 13), New Point(_x + 30, _y + 20), New Point(_x + 19, _y + 27), New Point(_x + 12, _y + 27), New Point(_x + 10, _y + 12)}
+                    G.DrawPolygon(New Pen(Color.Black), points)
+                    G.FillPolygon(New SolidBrush(Color.SteelBlue), points)
+                    points = {New Point(_x + 39, _y + 45), New Point(_x + 46, _y + 43), New Point(_x + 54, _y + 59), New Point(_x + 50, _y + 64), New Point(_x + 36, _y + 52)}
+                    G.DrawPolygon(New Pen(Color.Black), points)
+                    G.FillPolygon(New SolidBrush(Color.SteelBlue), points)
+                Else
                     G.DrawPolygon(New Pen(Color.Black), points)
                     G.FillPolygon(New SolidBrush(Color.FromArgb(100, 90, 90)), points)
-                Else
-                    G.DrawPolygon(New Pen(Color.Gold), points)
-                    G.FillPolygon(New SolidBrush(Color.DarkSlateGray), points)
                 End If
             End If
 
@@ -79,12 +103,15 @@
             _cY = -30
             _cX = i + 30
             _visible = True
-            If special <> 1 Then
-                _health = 100
-                _worth = 15
-            Else
+            If _special = 1 Or _special = 2 Then
                 _health = 150
                 _worth = 500
+            ElseIf _special = 3 Then
+                _health = 200
+                _worth = 750
+            Else
+                _health = 100
+                _worth = 15
             End If
         End If
 

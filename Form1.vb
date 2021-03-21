@@ -2,7 +2,7 @@
 Public Class Form1
     Private MainRect As Rectangle
     Private Ship As ShipStarter
-    Private Ast(80) As Asteroid
+    Private Ast(50) As Asteroid
     Private Stars(300) As Star
     Private Lasers(20) As Weapon
     Private logicalLaser As Integer
@@ -135,7 +135,7 @@ Public Class Form1
                     Ship.speedX = Ast(i).speedX
                     Ship.speedY = Ast(i).speedY
                 End If
-                Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-11, 11) * 0.2, gen.Next(20, 80) * 0.1, gen.Next(0, 4), gen.Next(0, 20))
+                Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-11, 11) * 0.2, gen.Next(20, 80) * 0.1, gen.Next(0, 4), gen.Next(0, 40))
                 Ast(i).Show(G)
                 For n As Integer = 0 To Lasers.Count - 1
                     If (pointCircle(Lasers(n).x, Lasers(n).y, Ast(i).cX, Ast(i).cY, Ast(i).Radius)) And Lasers(n).visible And Ast(i).visible Then
@@ -185,18 +185,18 @@ Public Class Form1
     End Function
 
     Private Sub tmrScore_Tick(sender As Object, e As EventArgs) Handles tmrScore.Tick
-        counter += 5
+        counter += 1
         lblScore.Text = score
         If Ship.energy <= 95 Then
             Ship.energy += 5
         End If
-        If showAst < 5 And counter Mod 10 = 0 Then
+        If showAst < 5 And counter Mod 2 = 0 Then
             showAst += 1
         End If
-        If showAst < Ast.Count - 1 And counter Mod 100 = 0 Then
+        If showAst < Ast.Count - 1 And counter Mod 24 = 0 Then
             showAst += 1
         End If
-        If counter Mod 50 = 0 Then
+        If counter Mod 10 = 0 Then
             score += 1
         End If
         If Ship.health < 100 And Ship.energy = 100 Then
