@@ -164,12 +164,12 @@ Public Class Form1
                 lblRetry.Visible = True
                 lblRetry.Text = "Restart"
                 lblHScore.Visible = True
-                Cursor.Show()
             End If
             tmrScore.Stop()
             dead = True
             If updatingScore Then
                 updateArrScore(score)
+                Cursor.Show()
                 updatingScore = False
             End If
             showAst = 1

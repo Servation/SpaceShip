@@ -134,12 +134,13 @@ Partial Class Form1
         Me.Controls.Add(Me.lblGameOver)
         Me.Controls.Add(Me.lblHealth)
         Me.Cursor = System.Windows.Forms.Cursors.Cross
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(1000, 1000)
         Me.MinimumSize = New System.Drawing.Size(1000, 1000)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "The Asteroid Miner"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
