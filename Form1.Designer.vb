@@ -130,6 +130,7 @@ Partial Class Form1
         Me.Controls.Add(Me.lblPressSpace)
         Me.Controls.Add(Me.lblGameOver)
         Me.Controls.Add(Me.lblHealth)
+        Me.Cursor = System.Windows.Forms.Cursors.Cross
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(1000, 1000)

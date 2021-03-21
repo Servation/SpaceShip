@@ -34,6 +34,7 @@ Public Class Form1
     Private Sub form1_keydown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         keysPressed.Add(e.KeyCode)
         If e.KeyCode = Keys.Enter And dead Then
+            Cursor.Hide()
             StartShip()
             StartAsteroid()
             StartStars()
@@ -155,11 +156,13 @@ Public Class Form1
             Ship.Update()
             lblHealth.Text = Ship.health
         Else
+
             lblHealth.Visible = False
             If Not start Then
                 lblGameOver.Visible = True
                 lblRetry.Visible = True
                 lblHScore.Visible = True
+                Cursor.Show()
             End If
             tmrScore.Stop()
             dead = True
