@@ -264,4 +264,11 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub lblRetry_MouseEnter(sender As Object, e As EventArgs) Handles lblRetry.MouseEnter
+        lblRetry.BackColor = Color.FromArgb(200, 255, 255, 255)
+    End Sub
+
+    Private Sub lblRetry_MouseLeave(sender As Object, e As EventArgs) Handles lblRetry.MouseLeave
+        lblRetry.BackColor = Color.FromArgb(100, 250, 250, 250)
+    End Sub
 End Class
