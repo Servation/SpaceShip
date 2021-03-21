@@ -78,6 +78,7 @@ Public Class Form1
         My.Computer.Audio.Play(My.Resources.ShipNoise, AudioPlayMode.BackgroundLoop)
         ReadFile()
         updateArrScore(score)
+        lblRetry.BackColor = Color.FromArgb(100, 250, 250, 250)
     End Sub
 
     Private Sub StartShip()
