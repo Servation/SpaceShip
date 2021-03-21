@@ -261,4 +261,8 @@ Public Class Form1
             MessageBox.Show("File does not exist")
         End If
     End Sub
+
+    Private Sub lblRetry_Click(sender As Object, e As EventArgs) Handles lblRetry.Click
+
+    End Sub
 End Class

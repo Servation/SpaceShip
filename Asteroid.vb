@@ -47,6 +47,12 @@
                     points = {New Point(_x + 33, _y + 20), New Point(_x + 47, _y + 9), New Point(_x + 52, _y + 7), New Point(_x + 53, _y + 13), New Point(_x + 44, _y + 27), New Point(_x + 36, _y + 27)}
                     G.DrawPolygon(New Pen(Color.Black), points)
                     G.FillPolygon(New SolidBrush(Color.Gold), points)
+                    points = {New Point(_x + 48, _y + 31), New Point(_x + 50, _y + 26), New Point(_x + 66, _y + 30), New Point(_x + 51, _y + 35)}
+                    G.DrawPolygon(New Pen(Color.Black), points)
+                    G.FillPolygon(New SolidBrush(Color.Gold), points)
+                    points = {New Point(_x + 14, _y + 60), New Point(_x + 15, _y + 68), New Point(_x + 29, _y + 56), New Point(_x + 30, _y + 50), New Point(_x + 23, _y + 48)}
+                    G.DrawPolygon(New Pen(Color.Black), points)
+                    G.FillPolygon(New SolidBrush(Color.Gold), points)
                 ElseIf _special = 3 Then
                     G.DrawPolygon(New Pen(Color.LightSteelBlue), points)
                     G.FillPolygon(New SolidBrush(Color.SteelBlue), points)
@@ -65,6 +71,12 @@
                     G.DrawPolygon(New Pen(Color.Gold), points)
                     G.FillPolygon(New SolidBrush(Color.FromArgb(110, 100, 90)), points)
                     points = {New Point(_x + 33, _y + 20), New Point(_x + 47, _y + 9), New Point(_x + 52, _y + 7), New Point(_x + 53, _y + 13), New Point(_x + 44, _y + 27), New Point(_x + 36, _y + 27)}
+                    G.DrawPolygon(New Pen(Color.Black), points)
+                    G.FillPolygon(New SolidBrush(Color.Gold), points)
+                    points = {New Point(_x + 48, _y + 31), New Point(_x + 50, _y + 26), New Point(_x + 66, _y + 30), New Point(_x + 51, _y + 35)}
+                    G.DrawPolygon(New Pen(Color.Black), points)
+                    G.FillPolygon(New SolidBrush(Color.Gold), points)
+                    points = {New Point(_x + 14, _y + 60), New Point(_x + 15, _y + 68), New Point(_x + 29, _y + 56), New Point(_x + 30, _y + 50), New Point(_x + 23, _y + 48)}
                     G.DrawPolygon(New Pen(Color.Black), points)
                     G.FillPolygon(New SolidBrush(Color.Gold), points)
                 ElseIf _special = 3 Then
