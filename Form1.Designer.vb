@@ -54,22 +54,22 @@ Partial Class Form1
         Me.lblGameOver.AutoSize = True
         Me.lblGameOver.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.lblGameOver.Font = New System.Drawing.Font("Nirmala UI", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGameOver.ForeColor = System.Drawing.Color.Red
+        Me.lblGameOver.ForeColor = System.Drawing.Color.Crimson
         Me.lblGameOver.Location = New System.Drawing.Point(306, 315)
         Me.lblGameOver.Name = "lblGameOver"
-        Me.lblGameOver.Size = New System.Drawing.Size(373, 86)
+        Me.lblGameOver.Size = New System.Drawing.Size(363, 86)
         Me.lblGameOver.TabIndex = 1
-        Me.lblGameOver.Text = "Game Over"
+        Me.lblGameOver.Text = "Game over"
         Me.lblGameOver.Visible = False
         '
         'lblRetry
         '
         Me.lblRetry.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblRetry.BackColor = System.Drawing.Color.White
+        Me.lblRetry.BackColor = System.Drawing.Color.WhiteSmoke
         Me.lblRetry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblRetry.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.lblRetry.Font = New System.Drawing.Font("Nirmala UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRetry.ForeColor = System.Drawing.Color.Black
+        Me.lblRetry.ForeColor = System.Drawing.Color.Crimson
         Me.lblRetry.Location = New System.Drawing.Point(381, 420)
         Me.lblRetry.Name = "lblRetry"
         Me.lblRetry.Size = New System.Drawing.Size(214, 72)

@@ -69,7 +69,7 @@
             Else
                 If _special = 1 Or _special = 2 Then
                     G.DrawPolygon(New Pen(Color.Gold), points)
-                    G.FillPolygon(New SolidBrush(Color.FromArgb(110, 100, 90)), points)
+                    G.FillPolygon(New SolidBrush(Color.FromArgb(130, 120, 90)), points)
                     points = {New Point(_x + 33, _y + 20), New Point(_x + 47, _y + 9), New Point(_x + 52, _y + 7), New Point(_x + 53, _y + 13), New Point(_x + 44, _y + 27), New Point(_x + 36, _y + 27)}
                     G.DrawPolygon(New Pen(Color.Black), points)
                     G.FillPolygon(New SolidBrush(Color.Gold), points)
