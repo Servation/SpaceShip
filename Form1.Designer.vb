@@ -111,11 +111,11 @@ Partial Class Form1
         'lblTitle
         '
         Me.lblTitle.AutoSize = True
-        Me.lblTitle.Font = New System.Drawing.Font("Harlow Solid Italic", 60.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Font = New System.Drawing.Font("Harlow Solid Italic", 72.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.BlueViolet
-        Me.lblTitle.Location = New System.Drawing.Point(132, 187)
+        Me.lblTitle.Location = New System.Drawing.Point(61, 187)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(721, 101)
+        Me.lblTitle.Size = New System.Drawing.Size(862, 121)
         Me.lblTitle.TabIndex = 7
         Me.lblTitle.Text = "The Asteroid Miner"
         '
