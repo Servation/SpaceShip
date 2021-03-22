@@ -31,6 +31,10 @@ Partial Class Form1
         Me.lblScore = New System.Windows.Forms.Label()
         Me.lblHScore = New System.Windows.Forms.Label()
         Me.lblTitle = New System.Windows.Forms.Label()
+        Me.pbGameOver = New System.Windows.Forms.PictureBox()
+        Me.pbTitle = New System.Windows.Forms.PictureBox()
+        CType(Me.pbGameOver, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbTitle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Timer1
@@ -120,6 +124,26 @@ Partial Class Form1
         Me.lblTitle.Size = New System.Drawing.Size(862, 121)
         Me.lblTitle.TabIndex = 7
         Me.lblTitle.Text = "The Asteroid Miner"
+        Me.lblTitle.Visible = False
+        '
+        'pbGameOver
+        '
+        Me.pbGameOver.Image = Global.SpaceShip.My.Resources.Resources.image__2_
+        Me.pbGameOver.Location = New System.Drawing.Point(267, 335)
+        Me.pbGameOver.Name = "pbGameOver"
+        Me.pbGameOver.Size = New System.Drawing.Size(458, 50)
+        Me.pbGameOver.TabIndex = 9
+        Me.pbGameOver.TabStop = False
+        Me.pbGameOver.Visible = False
+        '
+        'pbTitle
+        '
+        Me.pbTitle.Image = Global.SpaceShip.My.Resources.Resources.image__1_
+        Me.pbTitle.Location = New System.Drawing.Point(117, 187)
+        Me.pbTitle.Name = "pbTitle"
+        Me.pbTitle.Size = New System.Drawing.Size(770, 70)
+        Me.pbTitle.TabIndex = 8
+        Me.pbTitle.TabStop = False
         '
         'Form1
         '
@@ -127,6 +151,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(984, 961)
+        Me.Controls.Add(Me.pbGameOver)
+        Me.Controls.Add(Me.pbTitle)
         Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.lblHScore)
         Me.Controls.Add(Me.lblScore)
@@ -141,6 +167,8 @@ Partial Class Form1
         Me.MinimumSize = New System.Drawing.Size(1000, 1000)
         Me.Name = "Form1"
         Me.Text = "The Asteroid Miner"
+        CType(Me.pbGameOver, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbTitle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -154,4 +182,6 @@ Partial Class Form1
     Friend WithEvents lblScore As Label
     Friend WithEvents lblHScore As Label
     Friend WithEvents lblTitle As Label
+    Friend WithEvents pbTitle As PictureBox
+    Friend WithEvents pbGameOver As PictureBox
 End Class

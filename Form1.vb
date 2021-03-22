@@ -54,8 +54,10 @@ Public Class Form1
         StartAsteroid()
         StartStars()
         StartLaser()
-        lblGameOver.Visible = False
-        lblTitle.Visible = False
+        'lblGameOver.Visible = False
+        'lblTitle.Visible = False
+        pbTitle.Visible = False
+        pbGameOver.Visible = False
         lblRetry.Visible = False
         lblHScore.Visible = False
         lblScore.Visible = True
@@ -180,8 +182,10 @@ Public Class Form1
         Else
             lblHealth.Visible = False
             If Not start Then
-                lblGameOver.Visible = True
-                lblTitle.Visible = True
+                'lblGameOver.Visible = True
+                'lblTitle.Visible = True
+                pbTitle.Visible = True
+                pbGameOver.Visible = True
                 lblRetry.Visible = True
                 lblRetry.Text = "Restart"
                 lblHScore.Visible = True
