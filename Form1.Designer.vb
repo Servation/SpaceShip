@@ -114,7 +114,7 @@ Partial Class Form1
         '
         Me.pbTitle.BackColor = System.Drawing.Color.Transparent
         Me.pbTitle.Image = Global.SpaceShip.My.Resources.Resources.Title
-        Me.pbTitle.Location = New System.Drawing.Point(48, 201)
+        Me.pbTitle.Location = New System.Drawing.Point(21, 201)
         Me.pbTitle.Name = "pbTitle"
         Me.pbTitle.Size = New System.Drawing.Size(943, 63)
         Me.pbTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
