@@ -77,9 +77,9 @@ Partial Class Form1
         Me.lblScore.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.lblScore.Font = New System.Drawing.Font("Nirmala UI", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblScore.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblScore.Location = New System.Drawing.Point(438, 31)
+        Me.lblScore.Location = New System.Drawing.Point(432, 31)
         Me.lblScore.Name = "lblScore"
-        Me.lblScore.Size = New System.Drawing.Size(109, 50)
+        Me.lblScore.Size = New System.Drawing.Size(120, 50)
         Me.lblScore.TabIndex = 5
         Me.lblScore.Text = "0"
         Me.lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
