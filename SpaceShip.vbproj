@@ -124,9 +124,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\2c37538ad1d9a09852c9ec8638c5fa8b.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\50-White-Noise-10min.mp3" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +137,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ShipNoise.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\laser.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

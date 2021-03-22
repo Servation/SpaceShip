@@ -67,7 +67,7 @@ Partial Class Form1
         Me.lblRetry.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblRetry.BackColor = System.Drawing.Color.Transparent
         Me.lblRetry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblRetry.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.lblRetry.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblRetry.Font = New System.Drawing.Font("Nirmala UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRetry.ForeColor = System.Drawing.Color.Crimson
         Me.lblRetry.Location = New System.Drawing.Point(381, 420)

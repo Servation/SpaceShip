@@ -16,6 +16,11 @@ Public Class Form1
     Private start As Boolean = True
     Private updatingScore As Boolean
 
+    Private Declare Function mciSendString Lib "winmm.dll" Alias "mciSendStringA" _
+    (ByVal lpstrCommand As String, ByVal lpstrReturnString As String,
+    ByVal uReturnLength As Integer, ByVal hwndCallback As Integer) As Integer
+
+
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If keysPressed.Contains(Keys.A) And Ship.speedX > -Ship.maxSpeed Then
             Ship.speedX -= 1
@@ -40,6 +45,19 @@ Public Class Form1
                 Lasers(logicalLaser).y = Ship.py0
                 Lasers(logicalLaser).speedY = -15
                 Ship.energy -= 15
+                Try
+                    mciSendString("close myWAV", Nothing, 0, 0)
+
+                    Dim fileName1 As String = "laser.wav"
+                    mciSendString("open " & ChrW(34) & fileName1 & ChrW(34) & " type mpegvideo alias myWAV", Nothing, 0, 0)
+                    mciSendString("play myWAV", Nothing, 0, 0)
+
+                    Dim Volume As Integer = 500 ' Sets it to use entire range of volume control
+                    mciSendString("setaudio myWAV volume to " & Volume.ToString, Nothing, 0, 0)
+
+                Catch ex As Exception
+                    Me.Text = ex.Message
+                End Try
             End If
         End If
     End Sub
@@ -79,6 +97,15 @@ Public Class Form1
         ReadFile()
         updateArrScore(score)
         lblRetry.BackColor = Color.FromArgb(100, 250, 250, 250)
+        CopyResourceToDisk()
+    End Sub
+
+    Private Sub CopyResourceToDisk()
+        If Not IO.File.Exists("laser.wav") Then
+            Dim bts(CInt(My.Resources.laser.Length - 1)) As Byte
+            My.Resources.laser.Read(bts, 0, bts.Length)
+            IO.File.WriteAllBytes("laser.wav", bts)
+        End If
     End Sub
 
     Private Sub StartShip()
@@ -90,8 +117,8 @@ Public Class Form1
         For i As Integer = 0 To Ast.Count - 1
             Ast(i) = New Asteroid(MainRect)
             Ast(i).x = gen.Next(0, MainRect.Width)
-            Ast(i).speedY = gen.Next(20, 80) * 0.1
-            Ast(i).speedX = gen.Next(-11, 11) * 0.2
+            Ast(i).speedY = gen.Next(20, 60) * 0.1
+            Ast(i).speedX = gen.Next(-10, 10) * 0.2
             Ast(i).type = gen.Next(0, 4)
             Ast(i).cX = Ast(i).x + 30
             Ast(i).worth = 15
@@ -137,7 +164,7 @@ Public Class Form1
                     Ship.speedX = Ast(i).speedX
                     Ship.speedY = Ast(i).speedY
                 End If
-                Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-11, 11) * 0.2, gen.Next(20, 80) * 0.1, gen.Next(0, 4), gen.Next(0, 40))
+                Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-10, 10) * 0.2, gen.Next(20, 60) * 0.1, gen.Next(0, 4), gen.Next(0, 40))
                 Ast(i).Show(G)
                 For n As Integer = 0 To Lasers.Count - 1
                     If (pointCircle(Lasers(n).x, Lasers(n).y, Ast(i).cX, Ast(i).cY, Ast(i).Radius)) And Lasers(n).visible And Ast(i).visible Then
@@ -259,13 +286,27 @@ Public Class Form1
                 arrScore(i) = fileText
             Next i
             inFile.Close()
-        Else
-            MessageBox.Show("File does not exist")
         End If
     End Sub
 
     Private Sub lblRetry_MouseEnter(sender As Object, e As EventArgs) Handles lblRetry.MouseEnter
         lblRetry.BackColor = Color.FromArgb(200, 255, 255, 255)
+    End Sub
+
+    Private Sub PlaySound(s As String)
+        Try
+            mciSendString("close myWAV", Nothing, 0, 0)
+
+            Dim fileName1 As String = "laser.wav"
+            mciSendString("open " & ChrW(34) & fileName1 & ChrW(34) & " type mpegvideo alias myWAV", Nothing, 0, 0)
+            mciSendString("play myWAV", Nothing, 0, 0)
+
+            Dim Volume As Integer = 500 ' Sets it to use entire range of volume control
+            mciSendString("setaudio myWAV volume to " & Volume.ToString, Nothing, 0, 0)
+
+        Catch ex As Exception
+            Me.Text = ex.Message
+        End Try
     End Sub
 
     Private Sub lblRetry_MouseLeave(sender As Object, e As EventArgs) Handles lblRetry.MouseLeave
