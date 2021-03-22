@@ -101,6 +101,11 @@ Public Class Form1
             My.Resources.impact.Read(bts, 0, bts.Length)
             IO.File.WriteAllBytes("explosion.wav", bts)
         End If
+        If Not IO.File.Exists("ShipHit.wav") Then
+            Dim bts(CInt(My.Resources.ShipHit.Length - 1)) As Byte
+            My.Resources.ShipHit.Read(bts, 0, bts.Length)
+            IO.File.WriteAllBytes("ShipHit.wav", bts)
+        End If
     End Sub
 
     Private Sub StartShip()
@@ -152,12 +157,14 @@ Public Class Form1
                     Ship.MoveY(30)
                     Ship.speedX = Ast(i).speedX
                     Ship.speedY = Ast(i).speedY
+                    PlaySound("ShipHit.wav", 2)
                 ElseIf (pointCircle(Ship.px1, Ship.py1, Ast(i).cX, Ast(i).cY, Ast(i).Radius) Or pointCircle(Ship.px2, Ship.py2, Ast(i).cX, Ast(i).cY, Ast(i).Radius)) And Ship.health > 0 And Ast(i).visible Then
                     Ast(i).health = 0
                     Ship.health -= 24
                     Ship.MoveY(20)
                     Ship.speedX = Ast(i).speedX
                     Ship.speedY = Ast(i).speedY
+                    PlaySound("ShipHit.wav", 2)
                 End If
                 Ast(i).Update(gen.Next(0, MainRect.Width), gen.Next(-10, 10) * 0.2, gen.Next(20, 60) * 0.1, gen.Next(0, 4), gen.Next(0, 40))
                 Ast(i).Show(G)
