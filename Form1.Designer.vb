@@ -129,7 +129,7 @@ Partial Class Form1
         'pbGameOver
         '
         Me.pbGameOver.Image = Global.SpaceShip.My.Resources.Resources.image__6_
-        Me.pbGameOver.Location = New System.Drawing.Point(264, 335)
+        Me.pbGameOver.Location = New System.Drawing.Point(258, 338)
         Me.pbGameOver.Name = "pbGameOver"
         Me.pbGameOver.Size = New System.Drawing.Size(458, 50)
         Me.pbGameOver.TabIndex = 9
@@ -139,7 +139,7 @@ Partial Class Form1
         'pbTitle
         '
         Me.pbTitle.Image = Global.SpaceShip.My.Resources.Resources.image__5_
-        Me.pbTitle.Location = New System.Drawing.Point(138, 217)
+        Me.pbTitle.Location = New System.Drawing.Point(153, 216)
         Me.pbTitle.Name = "pbTitle"
         Me.pbTitle.Size = New System.Drawing.Size(770, 70)
         Me.pbTitle.TabIndex = 8
