@@ -141,5 +141,17 @@
   <ItemGroup>
     <None Include="Resources\laser.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\explosion.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\explosion.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impact1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impact.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

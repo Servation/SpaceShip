@@ -1,4 +1,4 @@
-﻿
+﻿Imports System.Runtime.InteropServices
 Public Class Form1
     Private MainRect As Rectangle
     Private Ship As ShipStarter
@@ -45,19 +45,7 @@ Public Class Form1
                 Lasers(logicalLaser).y = Ship.py0
                 Lasers(logicalLaser).speedY = -15
                 Ship.energy -= 15
-                Try
-                    mciSendString("close myWAV", Nothing, 0, 0)
-
-                    Dim fileName1 As String = "laser.wav"
-                    mciSendString("open " & ChrW(34) & fileName1 & ChrW(34) & " type mpegvideo alias myWAV", Nothing, 0, 0)
-                    mciSendString("play myWAV", Nothing, 0, 0)
-
-                    Dim Volume As Integer = 500 ' Sets it to use entire range of volume control
-                    mciSendString("setaudio myWAV volume to " & Volume.ToString, Nothing, 0, 0)
-
-                Catch ex As Exception
-                    Me.Text = ex.Message
-                End Try
+                PlaySound("laser.wav", 1)
             End If
         End If
     End Sub
@@ -105,6 +93,11 @@ Public Class Form1
             Dim bts(CInt(My.Resources.laser.Length - 1)) As Byte
             My.Resources.laser.Read(bts, 0, bts.Length)
             IO.File.WriteAllBytes("laser.wav", bts)
+        End If
+        If Not IO.File.Exists("explosion.wav") Then
+            Dim bts(CInt(My.Resources.impact.Length - 1)) As Byte
+            My.Resources.impact.Read(bts, 0, bts.Length)
+            IO.File.WriteAllBytes("explosion.wav", bts)
         End If
     End Sub
 
@@ -170,6 +163,7 @@ Public Class Form1
                     If (pointCircle(Lasers(n).x, Lasers(n).y, Ast(i).cX, Ast(i).cY, Ast(i).Radius)) And Lasers(n).visible And Ast(i).visible Then
                         Ast(i).health -= 51
                         Lasers(n).visible = False
+                        PlaySound("explosion.wav", 0)
                         If Ast(i).health <= 0 Then
                             score += Ast(i).worth
                         End If
@@ -293,16 +287,16 @@ Public Class Form1
         lblRetry.BackColor = Color.FromArgb(200, 255, 255, 255)
     End Sub
 
-    Private Sub PlaySound(s As String)
+    Private Sub PlaySound(s As String, i As Integer)
         Try
-            mciSendString("close myWAV", Nothing, 0, 0)
+            mciSendString("close myWAV" & i.ToString, Nothing, 0, 0)
 
-            Dim fileName1 As String = "laser.wav"
-            mciSendString("open " & ChrW(34) & fileName1 & ChrW(34) & " type mpegvideo alias myWAV", Nothing, 0, 0)
-            mciSendString("play myWAV", Nothing, 0, 0)
+            Dim fileName1 As String = s
+            mciSendString("open " & ChrW(34) & fileName1 & ChrW(34) & " type mpegvideo alias myWAV" & i.ToString, Nothing, 0, 0)
+            mciSendString("play myWAV" & i.ToString, Nothing, 0, 0)
 
-            Dim Volume As Integer = 500 ' Sets it to use entire range of volume control
-            mciSendString("setaudio myWAV volume to " & Volume.ToString, Nothing, 0, 0)
+            Dim Volume As Integer = 400
+            mciSendString("setaudio myWAV" & i.ToString & " volume to " & Volume.ToString, Nothing, 0, 0)
 
         Catch ex As Exception
             Me.Text = ex.Message
