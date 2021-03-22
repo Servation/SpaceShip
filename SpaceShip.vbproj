@@ -147,5 +147,8 @@
   <ItemGroup>
     <None Include="Resources\ShipHit.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Restart.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

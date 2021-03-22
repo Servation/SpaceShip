@@ -66,6 +66,7 @@ Public Class Form1
         dead = False
         Ship.alive = True
         updatingScore = True
+        PlaySound("Restart.wav", 3)
         Cursor.Hide()
         If start Then
             start = False
@@ -105,6 +106,11 @@ Public Class Form1
             Dim bts(CInt(My.Resources.ShipHit.Length - 1)) As Byte
             My.Resources.ShipHit.Read(bts, 0, bts.Length)
             IO.File.WriteAllBytes("ShipHit.wav", bts)
+        End If
+        If Not IO.File.Exists("Restart.wav") Then
+            Dim bts(CInt(My.Resources.Restart.Length - 1)) As Byte
+            My.Resources.Restart.Read(bts, 0, bts.Length)
+            IO.File.WriteAllBytes("Restart.wav", bts)
         End If
     End Sub
 
