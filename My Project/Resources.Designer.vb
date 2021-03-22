@@ -63,19 +63,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property image__6_() As System.Drawing.Bitmap
+        Friend ReadOnly Property Gameover() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("image (6)", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property image__7_() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("image (7)", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("Gameover", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -104,6 +94,16 @@ Namespace My.Resources
         Friend ReadOnly Property ShipNoise() As System.IO.UnmanagedMemoryStream
             Get
                 Return ResourceManager.GetStream("ShipNoise", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Title() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Title", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
     End Module

@@ -101,7 +101,7 @@ Partial Class Form1
         'pbGameOver
         '
         Me.pbGameOver.BackColor = System.Drawing.Color.Transparent
-        Me.pbGameOver.Image = Global.SpaceShip.My.Resources.Resources.image__6_
+        Me.pbGameOver.Image = Global.SpaceShip.My.Resources.Resources.Gameover
         Me.pbGameOver.Location = New System.Drawing.Point(272, 302)
         Me.pbGameOver.Name = "pbGameOver"
         Me.pbGameOver.Size = New System.Drawing.Size(441, 44)
@@ -113,10 +113,10 @@ Partial Class Form1
         'pbTitle
         '
         Me.pbTitle.BackColor = System.Drawing.Color.Transparent
-        Me.pbTitle.Image = Global.SpaceShip.My.Resources.Resources.image__7_
+        Me.pbTitle.Image = Global.SpaceShip.My.Resources.Resources.Title
         Me.pbTitle.Location = New System.Drawing.Point(48, 201)
         Me.pbTitle.Name = "pbTitle"
-        Me.pbTitle.Size = New System.Drawing.Size(889, 66)
+        Me.pbTitle.Size = New System.Drawing.Size(943, 63)
         Me.pbTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.pbTitle.TabIndex = 8
         Me.pbTitle.TabStop = False
