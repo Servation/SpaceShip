@@ -138,8 +138,8 @@ Partial Class Form1
         '
         'pbTitle
         '
-        Me.pbTitle.Image = Global.SpaceShip.My.Resources.Resources.image__3_
-        Me.pbTitle.Location = New System.Drawing.Point(153, 213)
+        Me.pbTitle.Image = Global.SpaceShip.My.Resources.Resources.image__5_
+        Me.pbTitle.Location = New System.Drawing.Point(138, 217)
         Me.pbTitle.Name = "pbTitle"
         Me.pbTitle.Size = New System.Drawing.Size(770, 70)
         Me.pbTitle.TabIndex = 8
