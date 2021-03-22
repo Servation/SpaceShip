@@ -124,49 +124,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\50-White-Noise-10min.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\TEST_White noise %28ID 1037%29_BSB.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WhiteNoise.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\TEST_Pink noise %28ID 0432%29_BSB.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\ShipNoise.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\laser.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\explosion.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="bin\Debug\explosion.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\impact1.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\impact.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\image %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\image %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\image %283%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\image %284%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\image %285%29.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\image %286%29.png" />

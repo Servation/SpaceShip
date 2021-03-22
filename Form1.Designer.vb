@@ -25,12 +25,10 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.lblHealth = New System.Windows.Forms.Label()
-        Me.lblGameOver = New System.Windows.Forms.Label()
         Me.lblRetry = New System.Windows.Forms.Label()
         Me.tmrScore = New System.Windows.Forms.Timer(Me.components)
         Me.lblScore = New System.Windows.Forms.Label()
         Me.lblHScore = New System.Windows.Forms.Label()
-        Me.lblTitle = New System.Windows.Forms.Label()
         Me.pbGameOver = New System.Windows.Forms.PictureBox()
         Me.pbTitle = New System.Windows.Forms.PictureBox()
         CType(Me.pbGameOver, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,30 +51,17 @@ Partial Class Form1
         Me.lblHealth.Size = New System.Drawing.Size(0, 50)
         Me.lblHealth.TabIndex = 0
         '
-        'lblGameOver
-        '
-        Me.lblGameOver.AutoSize = True
-        Me.lblGameOver.BackColor = System.Drawing.Color.Transparent
-        Me.lblGameOver.Font = New System.Drawing.Font("Nirmala UI", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGameOver.ForeColor = System.Drawing.Color.Crimson
-        Me.lblGameOver.Location = New System.Drawing.Point(306, 315)
-        Me.lblGameOver.Name = "lblGameOver"
-        Me.lblGameOver.Size = New System.Drawing.Size(363, 86)
-        Me.lblGameOver.TabIndex = 1
-        Me.lblGameOver.Text = "Game over"
-        Me.lblGameOver.Visible = False
-        '
         'lblRetry
         '
         Me.lblRetry.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblRetry.BackColor = System.Drawing.Color.Transparent
         Me.lblRetry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblRetry.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblRetry.Font = New System.Drawing.Font("Nirmala UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRetry.Font = New System.Drawing.Font("Nirmala UI", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRetry.ForeColor = System.Drawing.Color.Crimson
-        Me.lblRetry.Location = New System.Drawing.Point(381, 420)
+        Me.lblRetry.Location = New System.Drawing.Point(402, 420)
         Me.lblRetry.Name = "lblRetry"
-        Me.lblRetry.Size = New System.Drawing.Size(214, 72)
+        Me.lblRetry.Size = New System.Drawing.Size(180, 55)
         Me.lblRetry.TabIndex = 0
         Me.lblRetry.Text = "Start"
         Me.lblRetry.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -113,35 +98,26 @@ Partial Class Form1
         Me.lblHScore.Text = "High Score:"
         Me.lblHScore.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'lblTitle
-        '
-        Me.lblTitle.AutoSize = True
-        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
-        Me.lblTitle.Font = New System.Drawing.Font("Harlow Solid Italic", 72.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.ForeColor = System.Drawing.Color.BlueViolet
-        Me.lblTitle.Location = New System.Drawing.Point(61, 187)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(862, 121)
-        Me.lblTitle.TabIndex = 7
-        Me.lblTitle.Text = "The Asteroid Miner"
-        Me.lblTitle.Visible = False
-        '
         'pbGameOver
         '
+        Me.pbGameOver.BackColor = System.Drawing.Color.Transparent
         Me.pbGameOver.Image = Global.SpaceShip.My.Resources.Resources.image__6_
-        Me.pbGameOver.Location = New System.Drawing.Point(258, 338)
+        Me.pbGameOver.Location = New System.Drawing.Point(272, 302)
         Me.pbGameOver.Name = "pbGameOver"
-        Me.pbGameOver.Size = New System.Drawing.Size(458, 50)
+        Me.pbGameOver.Size = New System.Drawing.Size(441, 44)
+        Me.pbGameOver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.pbGameOver.TabIndex = 9
         Me.pbGameOver.TabStop = False
         Me.pbGameOver.Visible = False
         '
         'pbTitle
         '
+        Me.pbTitle.BackColor = System.Drawing.Color.Transparent
         Me.pbTitle.Image = Global.SpaceShip.My.Resources.Resources.image__7_
-        Me.pbTitle.Location = New System.Drawing.Point(46, 187)
+        Me.pbTitle.Location = New System.Drawing.Point(48, 201)
         Me.pbTitle.Name = "pbTitle"
-        Me.pbTitle.Size = New System.Drawing.Size(926, 110)
+        Me.pbTitle.Size = New System.Drawing.Size(889, 66)
+        Me.pbTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.pbTitle.TabIndex = 8
         Me.pbTitle.TabStop = False
         '
@@ -153,11 +129,9 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(984, 961)
         Me.Controls.Add(Me.pbGameOver)
         Me.Controls.Add(Me.pbTitle)
-        Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.lblHScore)
         Me.Controls.Add(Me.lblScore)
         Me.Controls.Add(Me.lblRetry)
-        Me.Controls.Add(Me.lblGameOver)
         Me.Controls.Add(Me.lblHealth)
         Me.Cursor = System.Windows.Forms.Cursors.Cross
         Me.DoubleBuffered = True
@@ -176,12 +150,10 @@ Partial Class Form1
 
     Friend WithEvents Timer1 As Timer
     Friend WithEvents lblHealth As Label
-    Friend WithEvents lblGameOver As Label
     Friend WithEvents lblRetry As Label
     Friend WithEvents tmrScore As Timer
     Friend WithEvents lblScore As Label
     Friend WithEvents lblHScore As Label
-    Friend WithEvents lblTitle As Label
     Friend WithEvents pbTitle As PictureBox
     Friend WithEvents pbGameOver As PictureBox
 End Class
