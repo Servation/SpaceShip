@@ -19,12 +19,7 @@
 
     Sub New(MainRect As Rectangle)
         Me.MainRect = MainRect
-        ResetVars()
         _alive = False
-    End Sub
-
-    Private Sub ResetVars()
-        'reset variables
         _x = MainRect.Width / 2 - 45
         _y = MainRect.Height * 9 / 10 - 30
         _speedX = 0
@@ -35,7 +30,6 @@
         _py1 = 65 + _y
         _px2 = 60 + _x
         _py2 = 65 + _y
-
     End Sub
 
     Public Sub Show(G As Graphics)

@@ -7,16 +7,10 @@
 
     Sub New(MainRect As Rectangle)
         Me.MainRect = MainRect
-        ResetVars()
-    End Sub
-
-    Private Sub ResetVars()
-        'reset variables
     End Sub
 
     Public Sub Show(G As Graphics)
-        G.FillEllipse(New SolidBrush(Color.FromArgb(250, 250, 250)), New Rectangle(_x - (_size / 2), _y - (_size / 2), _size, _size)
-)
+        G.FillEllipse(New SolidBrush(Color.FromArgb(250, 250, 250)), New Rectangle(_x - (_size / 2), _y - (_size / 2), _size, _size))
     End Sub
 
     Public Sub Update()

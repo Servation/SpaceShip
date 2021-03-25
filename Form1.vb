@@ -1,4 +1,4 @@
-﻿Imports System.Runtime.InteropServices
+﻿
 Public Class Form1
     Private MainRect As Rectangle
     Private Ship As ShipStarter
@@ -54,8 +54,6 @@ Public Class Form1
         StartAsteroid()
         StartStars()
         StartLaser()
-        'lblGameOver.Visible = False
-        'lblTitle.Visible = False
         pbTitle.Visible = False
         pbGameOver.Visible = False
         lblRetry.Visible = False

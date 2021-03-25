@@ -15,11 +15,6 @@
 
     Sub New(MainRect As Rectangle)
         Me.MainRect = MainRect
-        ResetVars()
-    End Sub
-
-    Private Sub ResetVars()
-        'reset variables
         _y = -60
         _Radius = 30
         _cY = -30
